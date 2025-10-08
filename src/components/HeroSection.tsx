@@ -171,10 +171,11 @@ const HeroSection = () => {
                     opacity: 1
                   }}
                   transition={{ 
-                    y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 2, repeat: Infinity, ease: "easeInOut", repeatType: "loop" },
                     opacity: { duration: 1, delay: 1 },
                     default: { duration: 1.5, ease: "easeOut" }
                   }}
+                  style={{ willChange: 'transform' }}
                 >
                   <img
                     src="/images/Drone-removebg-preview.png"
@@ -193,22 +194,25 @@ const HeroSection = () => {
               {/* Floating Tech Elements */}
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }}
                 className="absolute top-8 right-8 sm:top-10 sm:right-10 w-3 h-3 sm:w-4 sm:h-4 bg-cyan-500 rounded-full shadow-cyan"
+                style={{ willChange: 'transform' }}
               >
                 <Cpu className="w-2 h-2 sm:w-3 sm:h-3 text-white m-0.5" />
               </motion.div>
               <motion.div
                 animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1, repeatType: "loop" }}
                 className="absolute bottom-16 left-8 sm:bottom-20 sm:left-10 w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-full shadow-purple"
+                style={{ willChange: 'transform' }}
               >
                 <Wifi className="w-1 h-1 sm:w-2 sm:h-2 text-white m-0.5" />
               </motion.div>
               <motion.div
                 animate={{ y: [-5, 15, -5] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2, repeatType: "loop" }}
                 className="absolute top-1/2 right-3 sm:right-5 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full shadow-cyan"
+                style={{ willChange: 'transform' }}
               >
                 <Zap className="w-1 h-1 sm:w-1.5 sm:h-1.5 text-white m-0.25" />
               </motion.div>
@@ -232,13 +236,15 @@ const HeroSection = () => {
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
           className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-cyan-500/50 rounded-full flex justify-center"
+          style={{ willChange: 'transform' }}
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
             className="w-1 h-3 bg-cyan-400 rounded-full mt-2"
+            style={{ willChange: 'transform' }}
           ></motion.div>
         </motion.div>
       </motion.div>

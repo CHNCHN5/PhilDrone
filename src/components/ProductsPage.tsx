@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star, Zap, Shield, Camera, Wifi, Battery, MapPin } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
 import LoadingScreen from './LoadingScreen';
 import { usePageTransition } from '../hooks/usePageTransition';
@@ -12,6 +11,10 @@ const ProductsPage = () => {
 
   const handleNavigation = (productId: number) => {
     navigateWithLoading(`/products/${productId}`);
+  };
+
+  const handleBackNavigation = () => {
+    navigateWithLoading('/');
   };
 
   const droneVariants = [
@@ -110,12 +113,12 @@ const ProductsPage = () => {
             transition={{ duration: 0.6 }}
             className="mb-6 sm:mb-8"
           >
-            <Link 
-              href="/" 
+            <button 
+              onClick={handleBackNavigation}
               className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-card-dark hover:bg-gray-800/80 text-cyan-400 hover:text-cyan-300 transition-all duration-300 rounded-xl border border-gray-700 hover:border-cyan-500/50 backdrop-blur-sm hover:shadow-neon group"
             >
               <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform duration-300" />
-            </Link>
+            </button>
           </motion.div>
 
           {/* Page Header */}

@@ -3,26 +3,18 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Star, Zap, Cpu, Wifi } from 'lucide-react';
 import LoadingScreen from './LoadingScreen';
-import { useLoading } from '../hooks/useLoading';
+import { usePageTransition } from '../hooks/usePageTransition';
 
 const HeroSection = () => {
-  const { isLoading, withLoading } = useLoading();
+  const { isLoading, navigateWithLoading } = usePageTransition();
 
   const handleExploreProducts = () => {
-    withLoading(async () => {
-      // Simulate navigation delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      window.location.href = '/products';
-    });
+    navigateWithLoading('/products');
   };
 
   const handleWatchDemo = () => {
-    withLoading(async () => {
-      // Simulate demo loading
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      // You can add demo functionality here
-      console.log('Demo started');
-    });
+    // You can add demo functionality here
+    console.log('Demo started');
   };
   return (
     <>
@@ -63,7 +55,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left -mt-15 sm:mt-0"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}

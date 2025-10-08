@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Zap } from 'lucide-react';
 import LoadingScreen from './LoadingScreen';
 import { usePageTransition } from '../hooks/usePageTransition';
@@ -25,6 +25,33 @@ const Header = () => {
       }
     }, 2000); // Wait for page to load and loading screen to disappear
   };
+
+  // Close mobile menu when clicking outside or on page
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handlePageClick = () => {
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('scroll', handlePageClick);
+      document.addEventListener('touchstart', handlePageClick);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('scroll', handlePageClick);
+      document.removeEventListener('touchstart', handlePageClick);
+    };
+  }, [isMenuOpen]);
 
   const navigation = [
     { name: 'Products', href: '/products', hasDropdown: true },
@@ -170,7 +197,10 @@ const Header = () => {
             {/* Backdrop */}
             <div 
               className="md:hidden fixed inset-0 z-40"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsMenuOpen(false);
+              }}
             />
             {/* Dropdown */}
             <div className="md:hidden absolute top-full left-20 right-4 -mt-3 z-50">

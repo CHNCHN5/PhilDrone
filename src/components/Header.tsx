@@ -10,8 +10,19 @@ const Header = () => {
   const { isLoading, navigateWithLoading } = usePageTransition();
 
   const handleNavigation = (href: string) => {
+    // Close menu first
+    setIsMenuOpen(false);
+    
     if (href === '/products' || href === '/') {
       navigateWithLoading(href);
+    } else {
+      // For anchor links, scroll to the section with a small delay
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   };
 
@@ -26,30 +37,29 @@ const Header = () => {
     }, 2000); // Wait for page to load and loading screen to disappear
   };
 
-  // Close mobile menu when clicking outside or on page
+  // Close mobile menu when clicking outside the dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (isMenuOpen) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    const handlePageClick = () => {
-      if (isMenuOpen) {
+        const target = event.target as Element;
+        const dropdown = document.querySelector('[data-dropdown]');
+        const menuButton = document.querySelector('[data-menu-button]');
+        
+        // Don't close if clicking inside dropdown or menu button
+        if (dropdown?.contains(target) || menuButton?.contains(target)) {
+          return;
+        }
+        
         setIsMenuOpen(false);
       }
     };
 
     if (isMenuOpen) {
       document.addEventListener('click', handleClickOutside);
-      document.addEventListener('scroll', handlePageClick);
-      document.addEventListener('touchstart', handlePageClick);
     }
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
-      document.removeEventListener('scroll', handlePageClick);
-      document.removeEventListener('touchstart', handlePageClick);
     };
   }, [isMenuOpen]);
 
@@ -183,6 +193,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
+              data-menu-button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-300 hover:text-cyan-400 focus:outline-none focus:text-cyan-400 transition-colors duration-200 p-1"
             >
@@ -204,37 +215,25 @@ const Header = () => {
             />
             {/* Dropdown */}
             <div className="md:hidden absolute top-full left-20 right-4 -mt-3 z-50">
-            <div className="bg-black/80 backdrop-blur-md rounded-xl shadow-neon border border-cyan-500/30 overflow-hidden">
+            <div 
+              data-dropdown
+              className="bg-black/80 backdrop-blur-md rounded-xl shadow-neon border border-cyan-500/30 overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
               
               {/* Navigation Items */}
               <div className="py-0">
                 {navigation.map((item, index) => (
                   <div key={item.name}>
-                    {item.href === '/products' ? (
-                      <button
-                        onClick={() => {
-                          handleNavigation(item.href);
-                          setIsMenuOpen(false);
-                        }}
-                         className="w-full flex items-center justify-start px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200 text-right"
-                      >
-                        <div className="w-5 h-5 mr-3 flex items-center justify-center">
-                          <Zap className="w-4 h-4" />
-                        </div>
-                        <span className="font-medium">{item.name}</span>
-                      </button>
-                    ) : (
-                      <a
-                        href={item.href}
-                        onClick={() => setIsMenuOpen(false)}
-                         className="w-full flex items-center justify-start px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200 text-right"
-                      >
-                        <div className="w-5 h-5 mr-3 flex items-center justify-center">
-                          <Zap className="w-4 h-4" />
-                        </div>
-                        <span className="font-medium">{item.name}</span>
-                      </a>
-                    )}
+                    <button
+                      onClick={() => handleNavigation(item.href)}
+                      className="w-full flex items-center justify-start px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200 text-right"
+                    >
+                      <div className="w-5 h-5 mr-3 flex items-center justify-center">
+                        <Zap className="w-4 h-4" />
+                      </div>
+                      <span className="font-medium">{item.name}</span>
+                    </button>
                   </div>
                 ))}
                 
@@ -242,8 +241,8 @@ const Header = () => {
                  <div className="px-4 py-3 border-t border-gray-700/50">
                    <button
                      onClick={() => {
-                       handleGetStarted();
                        setIsMenuOpen(false);
+                       handleGetStarted();
                      }}
                      className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-3 py-2 rounded-lg text-sm font-semibold hover:shadow-neon transition-all duration-300"
                    >

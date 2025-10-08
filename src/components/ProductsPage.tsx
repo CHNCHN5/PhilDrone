@@ -94,28 +94,27 @@ const ProductsPage = () => {
       <LoadingScreen isVisible={isLoading} message="Loading product details..." />
       <div className="min-h-screen bg-gradient-to-b from-black to-gray-900">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-8 sm:py-20 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="cyber-grid opacity-5"></div>
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-6 sm:mb-8"
           >
             <Link 
               href="/" 
-              className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-200"
+              className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-card-dark hover:bg-gray-800/80 text-cyan-400 hover:text-cyan-300 transition-all duration-300 rounded-xl border border-gray-700 hover:border-cyan-500/50 backdrop-blur-sm hover:shadow-neon group"
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Home
+              <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform duration-300" />
             </Link>
           </motion.div>
 
@@ -124,19 +123,19 @@ const ProductsPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
               Our <span className="text-neon">Product Line</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
               Discover our comprehensive range of drones designed for every industry and application. 
               From agriculture to military, we have the perfect solution for your needs.
             </p>
           </motion.div>
 
           {/* Drone Variants Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {droneVariants.map((drone, index) => (
               <motion.div
                 key={drone.id}
@@ -147,74 +146,74 @@ const ProductsPage = () => {
               >
                 {/* Popular Badge */}
                 {drone.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10 pt-5 sm:pt-0">
                     <span className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-neon">
                       Most Popular
                     </span>
                   </div>
                 )}
 
-                <div className="bg-card-dark rounded-2xl p-6 shadow-lg hover:shadow-neon transition-all duration-300 h-full border border-gray-800 group-hover:border-cyan-500/50 backdrop-blur-sm relative">
+                <div className="bg-card-dark rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-neon transition-all duration-300 h-full border border-gray-800 group-hover:border-cyan-500/50 backdrop-blur-sm relative">
                   {/* Drone Image */}
-                  <div className="relative mb-6">
-                    <div className="w-full h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center relative overflow-hidden">
+                  <div className="relative mb-4 sm:mb-6">
+                    <div className="w-full h-37 sm:h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center relative overflow-hidden">
                       <Image
                         src="/images/Drone-removebg-preview.png"
                         alt={drone.name}
                         width={200}
                         height={150}
-                        className="object-contain filter drop-shadow-2xl"
+                        className="object-contain filter drop-shadow-2xl w-49 h-43 sm:w-60 sm:h-50"
                       />
                       
                       {/* Tech Icons */}
-                      <div className="absolute top-4 left-4 flex space-x-2">
-                        <Camera className="w-4 h-4 text-cyan-400" />
-                        <Wifi className="w-4 h-4 text-purple-400" />
-                        <Battery className="w-4 h-4 text-green-400" />
+                      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 flex space-x-1 sm:space-x-2">
+                        <Camera className="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400" />
+                        <Wifi className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
+                        <Battery className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
                       </div>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="space-y-4">
+                  <div className="space-y-2 sm:space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-2">{drone.name}</h3>
-                      <p className="text-gray-300 text-sm">{drone.description}</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{drone.name}</h3>
+                      <p className="text-gray-300 text-xs sm:text-sm">{drone.description}</p>
                     </div>
 
                     {/* Specifications */}
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-gray-800/50 rounded-lg p-3">
+                    <div className="grid grid-cols-2 gap-1.5 sm:gap-3">
+                      <div className="bg-gray-800/50 rounded-lg p-1.5 sm:p-3">
                         <div className="flex items-center mb-1">
-                          <MapPin className="w-4 h-4 text-cyan-400 mr-2" />
+                          <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400 mr-1 sm:mr-2" />
                           <span className="text-xs text-gray-400">Range</span>
                         </div>
-                        <span className="text-sm font-semibold text-white">{drone.range}</span>
+                        <span className="text-xs sm:text-sm font-semibold text-white">{drone.range}</span>
                       </div>
-                      <div className="bg-gray-800/50 rounded-lg p-3">
+                      <div className="bg-gray-800/50 rounded-lg p-1.5 sm:p-3">
                         <div className="flex items-center mb-1">
-                          <Battery className="w-4 h-4 text-green-400 mr-2" />
+                          <Battery className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mr-1 sm:mr-2" />
                           <span className="text-xs text-gray-400">Flight Time</span>
                         </div>
-                        <span className="text-sm font-semibold text-white">{drone.flightTime}</span>
+                        <span className="text-xs sm:text-sm font-semibold text-white">{drone.flightTime}</span>
                       </div>
-                      <div className="bg-gray-800/50 rounded-lg p-3 col-span-2">
+                      <div className="bg-gray-800/50 rounded-lg p-1.5 sm:p-3 col-span-2">
                         <div className="flex items-center mb-1">
-                          <Camera className="w-4 h-4 text-purple-400 mr-2" />
+                          <Camera className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400 mr-1 sm:mr-2" />
                           <span className="text-xs text-gray-400">Camera</span>
                         </div>
-                        <span className="text-sm font-semibold text-white">{drone.camera}</span>
+                        <span className="text-xs sm:text-sm font-semibold text-white">{drone.camera}</span>
                       </div>
                     </div>
 
                     {/* Features */}
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-300 mb-2">Key Features:</h4>
-                      <div className="flex flex-wrap gap-2">
+                      <h4 className="text-xs sm:text-sm font-semibold text-gray-300 mb-1 sm:mb-2">Key Features:</h4>
+                      <div className="flex flex-wrap gap-0.5 sm:gap-2">
                         {drone.features.map((feature, featureIndex) => (
                           <span
                             key={featureIndex}
-                            className="px-2 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full border border-cyan-500/20"
+                            className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full border border-cyan-500/20"
                           >
                             {feature}
                           </span>
@@ -223,11 +222,11 @@ const ProductsPage = () => {
                     </div>
 
                     {/* Price and CTA */}
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-800">
-                      <span className="text-lg font-bold text-white">{drone.price}</span>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-2 sm:pt-4 border-t border-gray-800 space-y-2 sm:space-y-0">
+                      <span className="text-base sm:text-lg font-bold text-white">{drone.price}</span>
                       <button 
                         onClick={() => handleNavigation(drone.id)}
-                        className={`bg-gradient-to-r ${drone.gradient} text-white px-4 py-2 rounded-lg text-sm font-medium hover:shadow-neon transition-all duration-300`}
+                        className={`bg-gradient-to-r ${drone.gradient} text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:shadow-neon transition-all duration-300 w-full sm:w-auto`}
                       >
                         Show More
                       </button>
@@ -243,20 +242,20 @@ const ProductsPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center mt-16"
+            className="text-center mt-12 sm:mt-16"
           >
-            <div className="bg-card-dark rounded-2xl shadow-neon p-8 max-w-4xl mx-auto border border-cyan-500/20">
-              <h3 className="text-2xl font-bold text-white mb-4">
+            <div className="bg-card-dark rounded-2xl shadow-neon p-4 sm:p-8 max-w-4xl mx-auto border border-cyan-500/20">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
                 Need a Custom Solution?
               </h3>
-              <p className="text-gray-300 mb-6">
+              <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
                 Our engineering team can design and build custom drone solutions tailored to your specific requirements and industry needs.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-neon transition-all duration-300">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold hover:shadow-neon transition-all duration-300 text-sm sm:text-base">
                   Contact Our Engineers
                 </button>
-                <button className="border-2 border-cyan-500/50 text-cyan-400 px-8 py-3 rounded-lg font-semibold hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300">
+                <button className="border-2 border-cyan-500/50 text-cyan-400 px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 text-sm sm:text-base">
                   Schedule a Demo
                 </button>
               </div>

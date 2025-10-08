@@ -453,20 +453,19 @@ const ProductDetailPage = () => {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:mt-0">
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-6 sm:mb-8"
           >
             <button 
               onClick={handleBackNavigation}
-              className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-200"
+              className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-card-dark hover:bg-gray-800/80 text-cyan-400 hover:text-cyan-300 transition-all duration-300 rounded-xl border border-gray-700 hover:border-cyan-500/50 backdrop-blur-sm hover:shadow-neon group"
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Products
+              <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform duration-300" />
             </button>
           </motion.div>
 
@@ -538,13 +537,15 @@ const ProductDetailPage = () => {
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   className="bg-card-dark rounded-xl p-6 border border-gray-800 hover:border-cyan-500/50 transition-all duration-300"
                 >
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 sm:mb-4 sm:mr-4">
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
+                      <p className="text-gray-300 text-sm">{feature.description}</p>
+                    </div>
                   </div>
-                  <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-gray-300 text-sm">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -583,11 +584,11 @@ const ProductDetailPage = () => {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-neon transition-all duration-300">
+              <div className="flex flex-row gap-2 sm:gap-4">
+                <button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 sm:px-8 py-3 rounded-lg font-semibold hover:shadow-neon transition-all duration-300 flex-1 sm:flex-none">
                   EXPLORE
                 </button>
-                <button className="border-2 border-gray-600 text-white px-8 py-3 rounded-lg font-semibold hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300">
+                <button className="border-2 border-gray-600 text-white px-4 sm:px-8 py-3 rounded-lg font-semibold hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 flex-1 sm:flex-none">
                   LEARN MORE
                 </button>
               </div>

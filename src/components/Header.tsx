@@ -62,17 +62,17 @@ const Header = () => {
       <LoadingScreen isVisible={isLoading} message="Loading page..." />
       <header className="bg-black/50 backdrop-blur-md border-b border-cyan-500/20 sticky top-0 z-50 shadow-neon">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <button 
               onClick={() => handleNavigation('/')}
               className="flex items-center group"
             >
-              <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center shadow-cyan group-hover:shadow-neon transition-all duration-300">
-                <Zap className="w-5 h-5 text-white" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center shadow-cyan group-hover:shadow-neon transition-all duration-300">
+                <Zap className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
               </div>
-              <span className="ml-2 text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
+              <span className="ml-2 text-lg sm:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
                 PhilDrone
               </span>
             </button>
@@ -80,13 +80,13 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-6 lg:ml-10 flex items-baseline space-x-4 lg:space-x-8">
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
                   {item.href === '/products' ? (
                     <button
                       onClick={() => handleNavigation(item.href)}
-                      className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium flex items-center transition-all duration-200 relative"
+                      className="text-gray-300 hover:text-cyan-400 px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium flex items-center transition-all duration-200 relative"
                     >
                       {item.name}
                       {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
@@ -95,7 +95,7 @@ const Header = () => {
                   ) : (
                     <a
                       href={item.href}
-                      className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium flex items-center transition-all duration-200 relative"
+                      className="text-gray-300 hover:text-cyan-400 px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium flex items-center transition-all duration-200 relative"
                     >
                       {item.name}
                       {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
@@ -105,13 +105,13 @@ const Header = () => {
                   
                   {/* Dropdown Menus */}
                   {item.hasDropdown && (
-                    <div className="absolute left-0 mt-2 w-56 bg-gray-900/95 backdrop-blur-md rounded-lg shadow-neon opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-cyan-500/20">
+                    <div className="absolute left-0 mt-2 w-48 lg:w-56 bg-gray-900/95 backdrop-blur-md rounded-lg shadow-neon opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-cyan-500/20">
                       <div className="py-2">
                         {item.name === 'Products' && productDropdown.map((dropdownItem) => (
                           <a
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className="block px-4 py-2 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200"
+                            className="block px-3 lg:px-4 py-2 text-xs lg:text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200"
                           >
                             {dropdownItem.name}
                           </a>
@@ -120,7 +120,7 @@ const Header = () => {
                           <a
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className="block px-4 py-2 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200"
+                            className="block px-3 lg:px-4 py-2 text-xs lg:text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200"
                           >
                             {dropdownItem.name}
                           </a>
@@ -129,7 +129,7 @@ const Header = () => {
                           <a
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className="block px-4 py-2 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200"
+                            className="block px-3 lg:px-4 py-2 text-xs lg:text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200"
                           >
                             {dropdownItem.name}
                           </a>
@@ -146,7 +146,7 @@ const Header = () => {
           <div className="hidden md:block">
             <button
               onClick={handleGetStarted}
-              className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-neon transition-all duration-300 font-medium relative overflow-hidden group"
+              className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 lg:px-6 py-2 rounded-lg hover:shadow-neon transition-all duration-300 font-medium relative overflow-hidden group text-xs lg:text-sm"
             >
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -157,44 +157,73 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-cyan-400 focus:outline-none focus:text-cyan-400 transition-colors duration-200"
+              className="text-gray-300 hover:text-cyan-400 focus:outline-none focus:text-cyan-400 transition-colors duration-200 p-1"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900/95 backdrop-blur-md border-t border-cyan-500/20">
-              {navigation.map((item) => (
-                item.href === '/products' ? (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavigation(item.href)}
-                    className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium transition-colors duration-200 w-full text-left"
-                  >
-                    {item.name}
-                  </button>
-                ) : (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                  >
-                    {item.name}
-                  </a>
-                )
-              ))}
-              <button
-                onClick={handleGetStarted}
-                className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white block px-3 py-2 rounded-lg text-base font-medium hover:shadow-neon transition-all duration-300 mt-4 w-full"
-              >
-                Get Started
-              </button>
+          <>
+            {/* Backdrop */}
+            <div 
+              className="md:hidden fixed inset-0 z-40"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            {/* Dropdown */}
+            <div className="md:hidden absolute top-full left-4 right-4 mt-2 z-50">
+            <div className="bg-card-dark rounded-xl shadow-neon border border-cyan-500/20 backdrop-blur-sm overflow-hidden">
+                
+                {/* Navigation Items */}
+                <div className="py-1">
+                  {navigation.map((item, index) => (
+                    <div key={item.name}>
+                      {item.href === '/products' ? (
+                        <button
+                          onClick={() => {
+                            handleNavigation(item.href);
+                            setIsMenuOpen(false);
+                          }}
+                          className="w-full flex items-center px-4 py-2 text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200 text-left"
+                        >
+                          <div className="w-4 h-4 mr-2 flex items-center justify-center">
+                            <Zap className="w-3 h-3" />
+                          </div>
+                          <span className="text-sm font-medium">{item.name}</span>
+                        </button>
+                      ) : (
+                        <a
+                          href={item.href}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="w-full flex items-center px-4 py-2 text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200"
+                        >
+                          <div className="w-4 h-4 mr-2 flex items-center justify-center">
+                            <Zap className="w-3 h-3" />
+                          </div>
+                          <span className="text-sm font-medium">{item.name}</span>
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                  
+                  {/* Get Started Button */}
+                  <div className="px-4 py-2 border-t border-gray-800">
+                    <button
+                      onClick={() => {
+                        handleGetStarted();
+                        setIsMenuOpen(false);
+                      }}
+                      className="w-auto bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-3 py-2 rounded-lg text-sm font-semibold hover:shadow-neon transition-all duration-300"
+                    >
+                      Get Started
+                    </button>
+                  </div>
+                </div>
             </div>
-          </div>
+            </div>
+          </>
         )}
       </nav>
     </header>

@@ -96,7 +96,7 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -104,8 +104,8 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-card-dark rounded-2xl p-8 border border-gray-800 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
+            <div className="bg-card-dark rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-800 backdrop-blur-sm">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Send us a Message</h3>
               
               {isSubmitted ? (
                 <motion.div
@@ -118,8 +118,8 @@ const ContactSection = () => {
                   <p className="text-gray-300">Thank you for your interest. We'll get back to you within 24 hours.</p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                         Full Name *
@@ -133,7 +133,7 @@ const ContactSection = () => {
                           required
                           value={formData.name}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm"
+                          className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm text-sm sm:text-base"
                           placeholder="John Doe"
                         />
                       </div>
@@ -151,14 +151,14 @@ const ContactSection = () => {
                           required
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm"
+                          className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm text-sm sm:text-base"
                           placeholder="john@company.com"
                         />
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
                         Company
@@ -171,7 +171,7 @@ const ContactSection = () => {
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm"
+                          className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm text-sm sm:text-base"
                           placeholder="Your Company"
                         />
                       </div>
@@ -188,7 +188,7 @@ const ContactSection = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm"
+                          className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm text-sm sm:text-base"
                           placeholder="+1 (555) 123-4567"
                         />
                       </div>
@@ -204,7 +204,7 @@ const ContactSection = () => {
                       name="interest"
                       value={formData.interest}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white backdrop-blur-sm"
+                      className="w-full px-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white backdrop-blur-sm text-sm sm:text-base"
                     >
                       <option value="">Select an option</option>
                       <option value="consumer">Consumer Drones</option>
@@ -229,7 +229,7 @@ const ContactSection = () => {
                         rows={4}
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 resize-none backdrop-blur-sm"
+                        className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-400 resize-none backdrop-blur-sm text-sm sm:text-base"
                         placeholder="Tell us about your project or requirements..."
                       />
                     </div>
@@ -237,7 +237,7 @@ const ContactSection = () => {
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-neon transition-all duration-300 flex items-center justify-center group"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-semibold hover:shadow-neon transition-all duration-300 flex items-center justify-center group text-sm sm:text-base"
                   >
                     <Send className="mr-2 h-5 w-5" />
                     Send Message
@@ -256,14 +256,14 @@ const ContactSection = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-              <p className="text-gray-300 mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Contact Information</h3>
+              <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
                 We're here to help you find the perfect drone solution. Reach out to us through 
                 any of the channels below, and our team will get back to you promptly.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
@@ -273,15 +273,15 @@ const ContactSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-card-dark rounded-xl p-6 shadow-lg border border-gray-800 backdrop-blur-sm hover:border-cyan-500/50 transition-all duration-300"
+                    className="bg-card-dark rounded-xl p-3 sm:p-6 shadow-lg border border-gray-800 backdrop-blur-sm hover:border-cyan-500/50 transition-all duration-300"
                   >
-                    <div className={`w-12 h-12 bg-gradient-to-r ${info.gradient} rounded-xl flex items-center justify-center mb-4 shadow-lg`}>
-                      <IconComponent className="w-6 h-6 text-white" />
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${info.gradient} rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg`}>
+                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h4 className="text-lg font-semibold text-white mb-3">{info.title}</h4>
+                    <h4 className="text-sm sm:text-lg font-semibold text-white mb-2 sm:mb-3">{info.title}</h4>
                     <div className="space-y-1">
                       {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-gray-300 text-sm">{detail}</p>
+                        <p key={detailIndex} className="text-gray-300 text-xs sm:text-sm">{detail}</p>
                       ))}
                     </div>
                   </motion.div>
@@ -295,7 +295,7 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="bg-card-dark rounded-xl h-64 flex items-center justify-center border border-gray-800 backdrop-blur-sm"
+              className="bg-card-dark rounded-xl h-48 sm:h-64 flex items-center justify-center border border-gray-800 backdrop-blur-sm"
             >
               <div className="text-center">
                 <div className="relative mb-4">
@@ -304,8 +304,8 @@ const ContactSection = () => {
                     <Cpu className="w-2 h-2 text-white m-1" />
                   </div>
                 </div>
-                <p className="text-gray-300">Interactive Map</p>
-                <p className="text-sm text-gray-400">123 Innovation Drive, Tech City</p>
+                <p className="text-gray-300 text-sm sm:text-base">Interactive Map</p>
+                <p className="text-xs sm:text-sm text-gray-400">123 Innovation Drive, Tech City</p>
               </div>
             </motion.div>
           </motion.div>

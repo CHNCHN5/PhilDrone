@@ -121,17 +121,17 @@ const SolutionsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Solutions for <span className="text-neon">Every Industry</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             From agriculture to entertainment, our drone solutions are transforming 
             industries and creating new possibilities for innovation.
           </p>
         </motion.div>
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
           {industries.map((industry, index) => {
             const IconComponent = industry.icon;
             return (
@@ -143,21 +143,21 @@ const SolutionsSection = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="bg-card-dark rounded-2xl p-8 shadow-lg hover:shadow-neon transition-all duration-300 h-full border border-gray-800 group-hover:border-cyan-500/50 backdrop-blur-sm">
+                <div className="bg-card-dark rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-neon transition-all duration-300 h-full border border-gray-800 group-hover:border-cyan-500/50 backdrop-blur-sm">
                   {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-r ${industry.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${industry.gradient} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-white mb-3">{industry.title}</h3>
-                  <p className="text-gray-300 mb-6">{industry.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{industry.title}</h3>
+                  <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">{industry.description}</p>
 
                   {/* Use Cases */}
                   <div className="space-y-2">
                     {industry.useCases.map((useCase, useCaseIndex) => (
-                      <div key={useCaseIndex} className="flex items-center text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-2 shadow-cyan"></div>
+                      <div key={useCaseIndex} className="flex items-center text-xs sm:text-sm text-gray-300">
+                        <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-cyan-400 rounded-full mr-2 shadow-cyan flex-shrink-0"></div>
                         {useCase}
                       </div>
                     ))}
@@ -176,16 +176,16 @@ const SolutionsSection = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               Popular Use Cases
             </h3>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4">
               Discover how our drones are being used across different applications
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {useCases.map((useCase, index) => {
               const IconComponent = useCase.icon;
               return (
@@ -198,21 +198,21 @@ const SolutionsSection = () => {
                   className="group"
                 >
                   <div className="bg-card-dark rounded-2xl shadow-lg hover:shadow-neon transition-all duration-300 overflow-hidden border border-gray-800 group-hover:border-cyan-500/50 backdrop-blur-sm">
-                    <div className={`h-48 bg-gradient-to-br ${useCase.gradient} relative`}>
+                    <div className={`h-40 sm:h-48 bg-gradient-to-br ${useCase.gradient} relative`}>
                       <div className="absolute inset-0 bg-black/40"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <IconComponent className="w-16 h-16 text-white opacity-90" />
+                        <IconComponent className="w-12 h-12 sm:w-16 sm:h-16 text-white opacity-90" />
                       </div>
                       
                       {/* Tech Elements */}
-                      <div className="absolute top-4 right-4 flex space-x-2">
-                        <Cpu className="w-4 h-4 text-white/60" />
-                        <Zap className="w-4 h-4 text-white/60" />
+                      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex space-x-1 sm:space-x-2">
+                        <Cpu className="w-3 h-3 sm:w-4 sm:h-4 text-white/60" />
+                        <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-white/60" />
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h4 className="text-xl font-bold text-white mb-3">{useCase.title}</h4>
-                      <p className="text-gray-300">{useCase.description}</p>
+                    <div className="p-4 sm:p-6">
+                      <h4 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{useCase.title}</h4>
+                      <p className="text-gray-300 text-sm sm:text-base">{useCase.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -229,18 +229,18 @@ const SolutionsSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-cyan-500/10 to-purple-600/10 rounded-3xl p-8 md:p-12 text-white border border-cyan-500/20 backdrop-blur-sm">
-            <h3 className="text-3xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-cyan-500/10 to-purple-600/10 rounded-3xl p-6 sm:p-8 md:p-12 text-white border border-cyan-500/20 backdrop-blur-sm">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
               Ready to Transform Your Industry?
             </h3>
-            <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-gray-300 max-w-2xl mx-auto px-4">
               Let our experts help you find the perfect drone solution for your specific needs and requirements.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-neon transition-all duration-300">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold hover:shadow-neon transition-all duration-300 text-sm sm:text-base">
                 Schedule a Demo
               </button>
-              <button className="border-2 border-cyan-500/50 text-cyan-400 px-8 py-3 rounded-lg font-semibold hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 backdrop-blur-sm">
+              <button className="border-2 border-cyan-500/50 text-cyan-400 px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 backdrop-blur-sm text-sm sm:text-base">
                 Contact Sales
               </button>
             </div>

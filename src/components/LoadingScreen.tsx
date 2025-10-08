@@ -32,7 +32,7 @@ const LoadingScreen = ({ isVisible, message = "Loading..." }: LoadingScreenProps
             className="relative z-10 flex flex-col items-center justify-center"
           >
             {/* Lottie Animation */}
-            <div className="w-32 h-32 mb-6">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 mb-4 sm:mb-6">
               <Lottie
                 animationData={loaderAnimation}
                 loop={true}
@@ -46,7 +46,7 @@ const LoadingScreen = ({ isVisible, message = "Loading..." }: LoadingScreenProps
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.2 }}
-              className="text-white text-lg font-medium text-center"
+              className="text-white text-base sm:text-lg font-medium text-center px-4"
             >
               {message}
             </motion.p>

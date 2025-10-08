@@ -173,54 +173,54 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             />
             {/* Dropdown */}
-            <div className="md:hidden absolute top-full left-4 right-4 mt-2 z-50">
-            <div className="bg-card-dark rounded-xl shadow-neon border border-cyan-500/20 backdrop-blur-sm overflow-hidden">
-                
-                {/* Navigation Items */}
-                <div className="py-1">
-                  {navigation.map((item, index) => (
-                    <div key={item.name}>
-                      {item.href === '/products' ? (
-                        <button
-                          onClick={() => {
-                            handleNavigation(item.href);
-                            setIsMenuOpen(false);
-                          }}
-                          className="w-full flex items-center px-4 py-2 text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200 text-left"
-                        >
-                          <div className="w-4 h-4 mr-2 flex items-center justify-center">
-                            <Zap className="w-3 h-3" />
-                          </div>
-                          <span className="text-sm font-medium">{item.name}</span>
-                        </button>
-                      ) : (
-                        <a
-                          href={item.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="w-full flex items-center px-4 py-2 text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200"
-                        >
-                          <div className="w-4 h-4 mr-2 flex items-center justify-center">
-                            <Zap className="w-3 h-3" />
-                          </div>
-                          <span className="text-sm font-medium">{item.name}</span>
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                  
-                  {/* Get Started Button */}
-                  <div className="px-4 py-2 border-t border-gray-800">
-                    <button
-                      onClick={() => {
-                        handleGetStarted();
-                        setIsMenuOpen(false);
-                      }}
-                      className="w-auto bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-3 py-2 rounded-lg text-sm font-semibold hover:shadow-neon transition-all duration-300"
-                    >
-                      Get Started
-                    </button>
+            <div className="md:hidden absolute top-full left-20 right-4 -mt-3 z-50">
+            <div className="bg-black/80 backdrop-blur-md rounded-xl shadow-neon border border-cyan-500/30 overflow-hidden">
+              
+              {/* Navigation Items */}
+              <div className="py-0">
+                {navigation.map((item, index) => (
+                  <div key={item.name}>
+                    {item.href === '/products' ? (
+                      <button
+                        onClick={() => {
+                          handleNavigation(item.href);
+                          setIsMenuOpen(false);
+                        }}
+                         className="w-full flex items-center justify-start px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200 text-right"
+                      >
+                        <div className="w-5 h-5 mr-3 flex items-center justify-center">
+                          <Zap className="w-4 h-4" />
+                        </div>
+                        <span className="font-medium">{item.name}</span>
+                      </button>
+                    ) : (
+                      <a
+                        href={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                         className="w-full flex items-center justify-start px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200 text-right"
+                      >
+                        <div className="w-5 h-5 mr-3 flex items-center justify-center">
+                          <Zap className="w-4 h-4" />
+                        </div>
+                        <span className="font-medium">{item.name}</span>
+                      </a>
+                    )}
                   </div>
-                </div>
+                ))}
+                
+                 {/* Get Started Button */}
+                 <div className="px-4 py-3 border-t border-gray-700/50">
+                   <button
+                     onClick={() => {
+                       handleGetStarted();
+                       setIsMenuOpen(false);
+                     }}
+                     className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-3 py-2 rounded-lg text-sm font-semibold hover:shadow-neon transition-all duration-300"
+                   >
+                     Get Started
+                   </button>
+                 </div>
+              </div>
             </div>
             </div>
           </>

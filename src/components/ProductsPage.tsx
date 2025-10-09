@@ -5,6 +5,7 @@ import { ArrowLeft, Star, Zap, Shield, Camera, Wifi, Battery, MapPin } from 'luc
 import Image from 'next/image';
 import LoadingScreen from './LoadingScreen';
 import { usePageTransition } from '../hooks/usePageTransition';
+import ScrollToTop from './ScrollToTop';
 
 const ProductsPage = () => {
   const { isLoading, navigateWithLoading } = usePageTransition();
@@ -267,6 +268,7 @@ const ProductsPage = () => {
         </div>
       </section>
     </div>
+    <ScrollToTop />
     </>
   );
 };

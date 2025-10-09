@@ -5,6 +5,7 @@ import FeaturesSection from '@/components/FeaturesSection';
 import SolutionsSection from '@/components/SolutionsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/ScrollToTop';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

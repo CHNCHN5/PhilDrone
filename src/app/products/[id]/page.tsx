@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 import LoadingScreen from '../../../components/LoadingScreen';
 import { usePageTransition, usePageReady } from '../../../hooks/usePageTransition';
+import ScrollToTop from '../../../components/ScrollToTop';
 
 const ProductDetailPage = () => {
   const params = useParams();
@@ -697,6 +698,7 @@ const ProductDetailPage = () => {
         </div>
       </section>
     </div>
+    <ScrollToTop />
     </>
   );
 };

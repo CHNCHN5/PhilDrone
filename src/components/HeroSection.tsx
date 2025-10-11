@@ -1,20 +1,25 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowRight, Play, Star, Zap, Cpu, Wifi } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Play, Star, Zap, Cpu, Wifi, X } from 'lucide-react';
 import LoadingScreen from './LoadingScreen';
 import { usePageTransition } from '../hooks/usePageTransition';
+import { useState } from 'react';
 
 const HeroSection = () => {
   const { isLoading, navigateWithLoading } = usePageTransition();
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const handleExploreProducts = () => {
     navigateWithLoading('/products');
   };
 
   const handleWatchDemo = () => {
-    // You can add demo functionality here
-    console.log('Demo started');
+    setIsVideoOpen(true);
+  };
+
+  const closeVideo = () => {
+    setIsVideoOpen(false);
   };
   return (
     <>
@@ -249,6 +254,73 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
     </section>
+
+    {/* Video Modal */}
+    <AnimatePresence>
+      {isVideoOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={closeVideo}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative w-full max-w-4xl mx-4 bg-card-dark rounded-2xl border border-cyan-500/20 shadow-neon overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-800">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <Play className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white">Drone Demo Video</h3>
+              </div>
+              <button
+                onClick={closeVideo}
+                className="p-2 hover:bg-gray-800 rounded-lg transition-colors duration-200"
+              >
+                <X className="w-5 h-5 text-gray-400 hover:text-white" />
+              </button>
+            </div>
+
+            {/* Video Container */}
+            <div className="relative">
+              <video
+                controls
+                autoPlay
+                className="w-full h-auto max-h-[70vh] object-contain"
+                poster="/images/Drone-removebg-preview.png"
+              >
+                <source src="/vid/DroneVideoDemo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Video Overlay Effects */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                <div className="absolute bottom-4 left-4 w-1 h-1 bg-purple-400 rounded-full animate-pulse delay-300"></div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="p-4 sm:p-6 border-t border-gray-800">
+              <div className="flex items-center justify-end">
+                <div className="flex items-center space-x-2 text-gray-400 text-sm">
+                  <span>PHILDRONE INTRO</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
     </>
   );
 };

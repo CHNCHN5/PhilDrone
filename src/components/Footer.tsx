@@ -7,10 +7,10 @@ import {
   Mail,
   Phone,
   MapPin,
-  Zap,
   Cpu,
   Wifi
 } from 'lucide-react';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -27,8 +27,14 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-2 sm:space-y-4 col-span-2 lg:col-span-1">
             <div className="flex items-center">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center shadow-cyan">
-                <Zap className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center overflow-hidden">
+                <Image 
+                  src="/images/MARK_3.png" 
+                  alt="PhilDrone Logo" 
+                  width={32} 
+                  height={32} 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="ml-2 text-lg sm:text-xl font-bold text-white">PhilDrone</span>
             </div>
@@ -36,29 +42,29 @@ const Footer = () => {
               Leading the future of autonomous flight with cutting-edge drone technology 
               and innovative solutions for every industry.
             </p>
-            <div className="flex flex-wrap space-x-2 sm:space-x-4">
+            <div className="flex flex-wrap space-x-3 sm:space-x-4">
               <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 hover:shadow-cyan">
-                <Facebook className="h-3 w-3 sm:h-5 sm:w-5" />
+                <Facebook className="h-5 w-5 sm:h-5 sm:w-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 hover:shadow-cyan">
-                <Twitter className="h-3 w-3 sm:h-5 sm:w-5" />
+                <Twitter className="h-5 w-5 sm:h-5 sm:w-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors duration-300 hover:shadow-purple">
-                <Instagram className="h-3 w-3 sm:h-5 sm:w-5" />
+                <Instagram className="h-5 w-5 sm:h-5 sm:w-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300">
-                <Youtube className="h-3 w-3 sm:h-5 sm:w-5" />
+                <Youtube className="h-5 w-5 sm:h-5 sm:w-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
-                <Linkedin className="h-3 w-3 sm:h-5 sm:w-5" />
+                <Linkedin className="h-5 w-5 sm:h-5 sm:w-5" />
               </a>
             </div>
           </div>
 
           {/* Products */}
           <div>
-            <h3 className="text-sm sm:text-lg font-semibold mb-1 sm:mb-4 text-white">Products</h3>
-            <ul className="space-y-0.5 sm:space-y-2">
+            <h3 className="text-sm sm:text-lg font-bold mb-1 sm:mb-4 text-white">Products</h3>
+            <ul className="space-y-0 sm:space-y-2">
               <li><a href="#" className="text-gray-300 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300">Consumer Drones</a></li>
               <li><a href="#" className="text-gray-300 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300">Professional Drones</a></li>
               <li><a href="#" className="text-gray-300 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300">Enterprise Solutions</a></li>
@@ -69,8 +75,8 @@ const Footer = () => {
 
           {/* Solutions */}
           <div>
-            <h3 className="text-sm sm:text-lg font-semibold mb-1 sm:mb-4 text-white">Solutions</h3>
-            <ul className="space-y-0.5 sm:space-y-2">
+            <h3 className="text-sm sm:text-lg font-bold mb-1 sm:mb-4 text-white">Solutions</h3>
+            <ul className="space-y-0 sm:space-y-2">
               <li><a href="#" className="text-gray-300 hover:text-purple-400 text-xs sm:text-sm transition-colors duration-300">Aerial Photography</a></li>
               <li><a href="#" className="text-gray-300 hover:text-purple-400 text-xs sm:text-sm transition-colors duration-300">Mapping & Surveying</a></li>
               <li><a href="#" className="text-gray-300 hover:text-purple-400 text-xs sm:text-sm transition-colors duration-300">Search & Rescue</a></li>
@@ -81,7 +87,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-2 sm:space-y-4 col-span-2 lg:col-span-1">
-            <h3 className="text-sm sm:text-lg font-semibold mb-1 sm:mb-4 text-white">Contact</h3>
+            <h3 className="text-sm sm:text-lg font-bold mb-1 sm:mb-4 text-white">Contact</h3>
             <div className="space-y-0.5 sm:space-y-3">
               <div className="flex items-start text-gray-300 text-xs sm:text-sm">
                 <MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-2 text-cyan-400 flex-shrink-0 mt-0.5" />
@@ -110,7 +116,13 @@ const Footer = () => {
             <span className="text-xs sm:text-sm">Connected</span>
           </div>
           <div className="flex items-center space-x-2 text-gray-400">
-            <Zap className="h-3 w-3 sm:h-4 sm:w-4" />
+            <Image 
+              src="/images/MARK_3.png" 
+              alt="PhilDrone Logo" 
+              width={16} 
+              height={16} 
+              className="h-3 w-3 sm:h-4 sm:w-4 object-contain"
+            />
             <span className="text-xs sm:text-sm">High Performance</span>
           </div>
         </div>
@@ -118,7 +130,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-4 sm:mt-8 pt-4 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
             <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
-              © 2024 PhilDrone. All rights reserved.
+              © 2025 PhilDrone. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6">
               <a href="#" className="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300">Privacy Policy</a>

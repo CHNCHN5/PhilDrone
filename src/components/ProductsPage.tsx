@@ -27,7 +27,7 @@ const ProductsPage = () => {
       range: '5-15KM',
       flightTime: '45 min',
       camera: '4K Multispectral',
-      price: 'From $2,999',
+      price: 'From ₱89,970',
       gradient: 'from-green-500 to-emerald-600',
       popular: true
     },
@@ -39,7 +39,7 @@ const ProductsPage = () => {
       range: '20-50KM',
       flightTime: '2 hours',
       camera: '8K Thermal',
-      price: 'From $15,999',
+      price: 'From ₱479,970',
       gradient: 'from-red-500 to-orange-600',
       popular: false
     },
@@ -51,7 +51,7 @@ const ProductsPage = () => {
       range: '7-20KM',
       flightTime: '30 min',
       camera: '4K 60fps',
-      price: 'From $1,299',
+      price: 'From ₱38,970',
       gradient: 'from-purple-500 to-pink-600',
       popular: false
     },
@@ -63,7 +63,7 @@ const ProductsPage = () => {
       range: '10-25KM',
       flightTime: '1.5 hours',
       camera: '4K + Thermal',
-      price: 'From $8,999',
+      price: 'From ₱269,970',
       gradient: 'from-blue-500 to-cyan-600',
       popular: false
     },
@@ -75,7 +75,7 @@ const ProductsPage = () => {
       range: '3-8KM',
       flightTime: '25 min',
       camera: '4K HD',
-      price: 'From $599',
+      price: 'From ₱17,970',
       gradient: 'from-cyan-500 to-blue-600',
       popular: false
     },
@@ -87,7 +87,7 @@ const ProductsPage = () => {
       range: '5-12KM',
       flightTime: '40 min',
       camera: '4K Macro',
-      price: 'From $4,999',
+      price: 'From ₱149,970',
       gradient: 'from-yellow-500 to-orange-600',
       popular: false
     }

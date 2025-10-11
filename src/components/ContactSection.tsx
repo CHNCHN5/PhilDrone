@@ -90,7 +90,7 @@ const ContactSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get in <span className="text-neon">Touch</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="hidden sm:block text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to take your operations to new heights? Contact our team of experts 
             to discuss your drone needs and find the perfect solution.
           </p>

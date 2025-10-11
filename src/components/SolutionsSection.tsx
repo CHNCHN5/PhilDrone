@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { 
   Camera, 
   Map, 
@@ -13,10 +14,25 @@ import {
   Heart,
   Film,
   Zap,
-  Cpu
+  Cpu,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 const SolutionsSection = () => {
+  const [showAllIndustries, setShowAllIndustries] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
   const industries = [
     {
       icon: Camera,
@@ -131,7 +147,7 @@ const SolutionsSection = () => {
         </motion.div>
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-16 transition-all duration-500 ease-in-out">
           {industries.map((industry, index) => {
             const IconComponent = industry.icon;
             return (
@@ -139,22 +155,42 @@ const SolutionsSection = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
+                className={`group transition-all duration-500 ease-in-out ${index >= 2 && !showAllIndustries && isMobile ? 'pointer-events-none' : ''}`}
+                animate={{
+                  // Mobile: Animate based on showAllIndustries state
+                  // Desktop: Always show all cards
+                  opacity: isMobile && index >= 2 && !showAllIndustries ? 0 : 1,
+                  height: isMobile && index >= 2 && !showAllIndustries ? 0 : 'auto',
+                  marginBottom: isMobile && index >= 2 && !showAllIndustries ? 0 : undefined,
+                  y: isMobile && index >= 2 && !showAllIndustries ? 20 : 0,
+                  scale: isMobile && index >= 2 && !showAllIndustries ? 0.95 : 1
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut"
+                }}
+                style={{
+                  overflow: 'hidden',
+                  transition: 'all 0s ease'
+                }}
               >
-                <div className="bg-card-dark rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-neon transition-all duration-300 h-full border border-gray-800 group-hover:border-cyan-500/50 backdrop-blur-sm">
-                  {/* Icon */}
-                  <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${industry.gradient} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
+                 <div className="bg-card-dark rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-neon transition-all duration-300 h-full border border-gray-800 group-hover:border-cyan-500/50 backdrop-blur-sm">
+                   <div className="flex items-start space-x-4 sm:block">
+                     {/* Icon */}
+                     <div className={`w-12 h-12 sm:w-16 mt-4 sm:h-16 bg-gradient-to-r ${industry.gradient} rounded-2xl flex items-center justify-center mb-0 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0`}>
+                       <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                     </div>
 
-                  {/* Content */}
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{industry.title}</h3>
-                  <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">{industry.description}</p>
+                     {/* Content */}
+                     <div className="flex-1 min-w-0">
+                       <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{industry.title}</h3>
+                       <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">{industry.description}</p>
+                     </div>
+                   </div>
 
                   {/* Use Cases */}
-                  <div className="space-y-2">
+                  <div className="grid grid-cols-2 gap-2 sm:space-y-2 sm:grid-cols-1">
                     {industry.useCases.map((useCase, useCaseIndex) => (
                       <div key={useCaseIndex} className="flex items-center text-xs sm:text-sm text-gray-300">
                         <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-cyan-400 rounded-full mr-2 shadow-cyan flex-shrink-0"></div>
@@ -167,6 +203,39 @@ const SolutionsSection = () => {
             );
           })}
         </div>
+
+        {/* Show More/Less Button - Mobile Only */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className={`text-center mb-8 sm:mb-12 sm:hidden ${!showAllIndustries ? '-mt-22' : ''}`}
+        >
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              const currentScrollY = window.scrollY;
+              setShowAllIndustries(!showAllIndustries);
+              // Maintain scroll position with longer delay for smooth animation
+              setTimeout(() => {
+                window.scrollTo(0, currentScrollY);
+              }, 300);
+            }}
+            className="bg-card-dark rounded-2xl p-4 shadow-lg hover:shadow-neon transition-all duration-300 border border-gray-800 hover:border-cyan-500/50 backdrop-blur-sm w-auto max-w-sm mx-auto group"
+          >
+            <div className="flex items-center justify-center space-x-3">
+              <span className="text-white font-semibold text-sm">
+                {showAllIndustries ? 'Show Less' : 'Show More Industries'}
+              </span>
+              {showAllIndustries ? (
+                <ChevronUp className="w-5 h-5 text-cyan-400 group-hover:-translate-y-1 transition-transform" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-cyan-400 group-hover:translate-y-1 transition-transform" />
+              )}
+            </div>
+          </button>
+        </motion.div>
 
         {/* Use Cases Section */}
         <motion.div
@@ -185,7 +254,7 @@ const SolutionsSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {useCases.map((useCase, index) => {
               const IconComponent = useCase.icon;
               return (
@@ -211,8 +280,8 @@ const SolutionsSection = () => {
                       </div>
                     </div>
                     <div className="p-4 sm:p-6">
-                      <h4 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{useCase.title}</h4>
-                      <p className="text-gray-300 text-sm sm:text-base">{useCase.description}</p>
+                      <h4 className="text-sm sm:text-xl font-bold text-white mb-2 sm:mb-3">{useCase.title}</h4>
+                      <p className="hidden sm:block text-gray-300 text-sm sm:text-base">{useCase.description}</p>
                     </div>
                   </div>
                 </motion.div>

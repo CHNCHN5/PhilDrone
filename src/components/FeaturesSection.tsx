@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Brain, 
   Shield, 
@@ -21,6 +21,18 @@ import {
 
 const FeaturesSection = () => {
   const [showAllFeatures, setShowAllFeatures] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
   const features = [
     {
       icon: Brain,
@@ -114,7 +126,7 @@ const FeaturesSection = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Cutting-Edge <span className="text-neon">Technology</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+          <p className="hidden sm:block text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Our drones are equipped with the latest technology to deliver unmatched performance, 
             reliability, and intelligence for any mission.
           </p>
@@ -129,13 +141,20 @@ const FeaturesSection = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`group transition-all duration-500 ease-in-out ${index >= 3 && !showAllFeatures ? 'hidden sm:block' : ''}`}
+                className={`group transition-all duration-500 ease-in-out ${index >= 2 && !showAllFeatures && isMobile ? 'pointer-events-none' : ''}`}
                 animate={{
-                  opacity: index >= 3 && !showAllFeatures ? 0 : 1,
-                  height: index >= 3 && !showAllFeatures ? 0 : 'auto',
-                  marginBottom: index >= 3 && !showAllFeatures ? 0 : undefined
+                  // Mobile: Animate based on showAllFeatures state
+                  // Desktop: Always show all cards
+                  opacity: isMobile && index >= 2 && !showAllFeatures ? 0 : 1,
+                  height: isMobile && index >= 2 && !showAllFeatures ? 0 : 'auto',
+                  marginBottom: isMobile && index >= 2 && !showAllFeatures ? 0 : undefined,
+                  y: isMobile && index >= 2 && !showAllFeatures ? 20 : 0,
+                  scale: isMobile && index >= 2 && !showAllFeatures ? 0.95 : 1
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut"
                 }}
                 style={{
                   overflow: 'hidden',
@@ -163,17 +182,17 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 sm:hidden"
+          className={`text-center mb-9 sm:mb-12 sm:hidden ${!showAllFeatures ? '-mt-27' : ''}`}
         >
           <button
             onClick={(e) => {
               e.preventDefault();
               const currentScrollY = window.scrollY;
               setShowAllFeatures(!showAllFeatures);
-              // Maintain scroll position
+              // Maintain scroll position with longer delay for smooth animation
               setTimeout(() => {
                 window.scrollTo(0, currentScrollY);
-              }, 100);
+              }, 300);
             }}
             className="bg-card-dark rounded-2xl p-4 shadow-lg hover:shadow-neon transition-all duration-300 border border-gray-800 hover:border-cyan-500/50 backdrop-blur-sm w-auto max-w-sm mx-auto group"
           >
@@ -207,7 +226,7 @@ const FeaturesSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {capabilities.map((capability, index) => {
               const IconComponent = capability.icon;
               return (
@@ -223,7 +242,7 @@ const FeaturesSection = () => {
                     <IconComponent className={`w-8 h-8 sm:w-10 sm:h-10 ${capability.color}`} />
                   </div>
                   <h4 className="text-base sm:text-lg font-semibold text-white mb-2">{capability.title}</h4>
-                  <p className="text-gray-300 text-xs sm:text-sm">{capability.description}</p>
+                  <p className="hidden sm:block text-gray-300 text-xs sm:text-sm">{capability.description}</p>
                 </motion.div>
               );
             })}

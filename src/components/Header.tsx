@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Zap } from 'lucide-react';
+import { Menu, X, ChevronDown, Package, Lightbulb, Building2, HelpCircle, Info } from 'lucide-react';
 import LoadingScreen from './LoadingScreen';
 import { usePageTransition } from '../hooks/usePageTransition';
+import Image from 'next/image';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,11 +65,11 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const navigation = [
-    { name: 'Products', href: '/products', hasDropdown: true },
-    { name: 'Solutions', href: '#solutions', hasDropdown: true },
-    { name: 'Industries', href: '#industries', hasDropdown: true },
-    { name: 'Support', href: '#support' },
-    { name: 'About', href: '#about' },
+    { name: 'Products', href: '/products', hasDropdown: true, icon: Package },
+    { name: 'Solutions', href: '#solutions', hasDropdown: true, icon: Lightbulb },
+    { name: 'Industries', href: '#industries', hasDropdown: true, icon: Building2 },
+    { name: 'Support', href: '#support', icon: HelpCircle },
+    { name: 'About', href: '#about', icon: Info },
   ];
 
   const productDropdown = [
@@ -106,8 +107,14 @@ const Header = () => {
               onClick={() => handleNavigation('/')}
               className="flex items-center group"
             >
-              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center shadow-cyan group-hover:shadow-neon transition-all duration-300">
-                <Zap className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center transition-all duration-300 overflow-hidden">
+                <Image 
+                  src="/images/MARK_3.png" 
+                  alt="PhilDrone Logo" 
+                  width={32} 
+                  height={32} 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="ml-2 text-lg sm:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
                 PhilDrone
@@ -214,7 +221,7 @@ const Header = () => {
               }}
             />
             {/* Dropdown */}
-            <div className="md:hidden absolute top-full left-20 right-4 -mt-3 z-50">
+            <div className="md:hidden absolute top-full left-40 right-4 -mt-3 z-50">
             <div 
               data-dropdown
               className="bg-black/80 backdrop-blur-md rounded-xl shadow-neon border border-cyan-500/30 overflow-hidden"
@@ -223,19 +230,22 @@ const Header = () => {
               
               {/* Navigation Items */}
               <div className="py-0">
-                {navigation.map((item, index) => (
-                  <div key={item.name}>
-                    <button
-                      onClick={() => handleNavigation(item.href)}
-                      className="w-full flex items-center justify-start px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200 text-right"
-                    >
-                      <div className="w-5 h-5 mr-3 flex items-center justify-center">
-                        <Zap className="w-4 h-4" />
-                      </div>
-                      <span className="font-medium">{item.name}</span>
-                    </button>
-                  </div>
-                ))}
+                {navigation.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div key={item.name}>
+                      <button
+                        onClick={() => handleNavigation(item.href)}
+                        className="w-full flex items-center justify-start px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200 text-right"
+                      >
+                        <div className="w-5 h-5 mr-3 flex items-center justify-center">
+                          <IconComponent className="w-4 h-4" />
+                        </div>
+                        <span className="font-medium">{item.name}</span>
+                      </button>
+                    </div>
+                  );
+                })}
                 
                  {/* Get Started Button */}
                  <div className="px-4 py-3 border-t border-gray-700/50">

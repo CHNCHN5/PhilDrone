@@ -19,7 +19,7 @@ const HeroSection = () => {
   return (
     <>
       <LoadingScreen isVisible={isLoading} message="Loading..." />
-      <section className="relative min-h-screen pt-0 flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black cyber-grid py-8 sm:py-0">
+      <section className="relative min-h-screen pt-14 sm:pt-16 flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black cyber-grid py-8 sm:py-0">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-cyan-500/10 rounded-full mix-blend-screen filter blur-xl animate-pulse-slow"></div>
@@ -55,7 +55,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left -mt-15 sm:mt-0"
+            className="text-center lg:text-left"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}

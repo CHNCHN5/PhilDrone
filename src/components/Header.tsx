@@ -107,12 +107,12 @@ const Header = () => {
               onClick={() => handleNavigation('/')}
               className="flex items-center group"
             >
-              <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center transition-all duration-300 overflow-hidden">
+              <div className="w-20 h-20 sm:w-30 sm:h-20 flex items-center justify-center transition-all duration-300 overflow-hidden">
                 <Image 
                   src="/images/MARK_3.png" 
                   alt="PhilDrone Logo" 
-                  width={32} 
-                  height={32} 
+                  width={58} 
+                  height={58} 
                   className="w-full h-full object-contain"
                 />
               </div>

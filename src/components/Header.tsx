@@ -117,7 +117,7 @@ const Header = () => {
                 />
               </div>
               <span className="ml-2 text-lg sm:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
-                PhilDrone
+                PhilDrones
               </span>
             </button>
           </div>

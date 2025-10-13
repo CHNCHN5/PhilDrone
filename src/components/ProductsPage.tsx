@@ -61,7 +61,7 @@ const ProductsPage = () => {
       features: ['16L Tank Capacity', 'Precision Agriculture', 'Smart Automation', 'Liquid Cooled'],
       specs: {
         type: 'Agricultural Multirotor',
-        maxPayload: '16L liquid / 25kg solid',
+        maxPayload: '16L / 25kg ',
         flightTime: 'Up to 30 min',
         range: 'Up to 10 km',
         cruiseSpeed: '25 km/h',
@@ -82,10 +82,10 @@ const ProductsPage = () => {
     {
       id: 3,
       name: 'Medical Delivery Drone',
-      description: 'Hexacopter medical drones are six-rotor UAVs designed for fast, stable delivery of lightweight medical supplies in urban or remote areas, using GPS and onboard cameras for autonomous, contactless transport.',
+      description: 'Hexacopter medical drones are six-rotor UAVs designed for fast, stable delivery of medical supplies in urban or remote areas, using GPS and onboard cameras for autonomous, contactless transport.',
       features: ['Obstacle Avoidance', 'Contactless Delivery', 'GPS Navigation', '6-Rotor Stability'],
       specs: {
-        type: 'Hexacopter Delivery System',
+        type: 'Hexacopter Delivery',
         maxPayload: '5 kg',
         flightTime: 'Up to 40 min',
         range: 'Up to 25 km',

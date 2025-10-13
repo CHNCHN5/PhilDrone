@@ -354,58 +354,106 @@ const ProductDetailPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-12 uppercase">
+            <motion.h1 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 mb-12 uppercase tracking-widest filter drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]"
+            >
               DRONE&apos;S KEY FEATURE
-            </h1>
+            </motion.h1>
 
-            {/* Main Drone Image with Labels */}
+            {/* Main Drone Image with Enhanced Cyber Labels */}
             <div className="relative mb-16">
-              <div className="w-full max-w-4xl mx-auto relative">
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 relative overflow-hidden">
+              <div className="w-full max-w-5xl mx-auto relative">
+                {/* Enhanced Cyber Container */}
+                <div className="bg-gradient-to-br from-cyan-900/20 via-gray-900/40 to-purple-900/20 rounded-3xl p-12 md:p-16 relative overflow-hidden border-2 border-cyan-500/30 backdrop-blur-xl">
+                  {/* Animated Border Lines */}
+                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse"></div>
+                  <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent animate-pulse"></div>
+                  <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-cyan-400 to-transparent animate-pulse"></div>
+                  <div className="absolute right-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-purple-400 to-transparent animate-pulse"></div>
+                  
                   <Image
                     src={getDroneImage(product.id)}
                     alt={product.name}
-                    width={400}
-                    height={300}
-                    className="object-contain filter drop-shadow-2xl mx-auto"
+                    width={500}
+                    height={350}
+                    className="object-contain mx-auto filter drop-shadow-[0_0_50px_rgba(34,211,238,0.3)] transition-all duration-500 hover:scale-105"
                   />
                   
-                  {/* Feature Labels */}
-                  <div className="absolute top-8 left-8">
-                    <div className="bg-black/80 text-white px-3 py-1 rounded-lg text-sm font-semibold">
-                      {product.specifications.maxRange} MAX
+                  {/* Enhanced Cyber Feature Labels */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                    className="absolute top-8 left-8"
+                  >
+                    <div className="bg-gradient-to-r from-cyan-600/90 to-cyan-500/90 text-white px-4 py-2 rounded-xl text-sm font-bold tracking-wide border border-cyan-400/50 shadow-[0_0_20px_rgba(34,211,238,0.5)] backdrop-blur-md">
+                      <span className="text-cyan-100">{product.specifications.maxRange}</span> <span className="text-white">MAX</span>
                     </div>
-                  </div>
-                  <div className="absolute top-8 right-8">
-                    <div className="bg-black/80 text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
+                    className="absolute top-8 right-8"
+                  >
+                    <div className="bg-gradient-to-r from-purple-600/90 to-purple-500/90 text-white px-4 py-2 rounded-xl text-sm font-bold tracking-wide border border-purple-400/50 shadow-[0_0_20px_rgba(168,85,247,0.5)] backdrop-blur-md">
                       {product.specifications.omniDirectional}
                     </div>
-                  </div>
-                  <div className="absolute bottom-8 left-8">
-                    <div className="bg-black/80 text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.7, duration: 0.6 }}
+                    className="absolute bottom-8 left-8"
+                  >
+                    <div className="bg-gradient-to-r from-blue-600/90 to-blue-500/90 text-white px-4 py-2 rounded-xl text-sm font-bold tracking-wide border border-blue-400/50 shadow-[0_0_20px_rgba(59,130,246,0.5)] backdrop-blur-md">
                       {product.specifications.videoQuality}
                     </div>
-                  </div>
-                  <div className="absolute bottom-8 right-8">
-                    <div className="bg-black/80 text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                    className="absolute bottom-8 right-8"
+                  >
+                    <div className="bg-gradient-to-r from-green-600/90 to-green-500/90 text-white px-4 py-2 rounded-xl text-sm font-bold tracking-wide border border-green-400/50 shadow-[0_0_20px_rgba(34,197,94,0.5)] backdrop-blur-md">
                       {product.specifications.batteryLife}
                     </div>
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="bg-black/80 text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                  </motion.div>
+
+                  {/* Side Floating Badges - Positioned to not cover drone */}
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.9, duration: 0.6 }}
+                    className="absolute top-1/2 left-4 transform -translate-y-1/2"
+                  >
+                    <div className="bg-gradient-to-r from-cyan-500/90 to-purple-500/90 text-white px-4 py-2 rounded-xl text-sm font-bold tracking-wide border-2 border-white/30 shadow-[0_0_30px_rgba(34,211,238,0.6)] backdrop-blur-md animate-pulse">
                       {product.specifications.sensor}
                     </div>
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-8">
-                    <div className="bg-black/80 text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.0, duration: 0.6 }}
+                    className="absolute top-1/2 right-4 transform -translate-y-1/2"
+                  >
+                    <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 text-cyan-300 px-4 py-2 rounded-xl text-sm font-semibold tracking-wide border border-cyan-400/30 shadow-[0_0_15px_rgba(34,211,238,0.3)] backdrop-blur-md">
                       {product.specifications.transmission}
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
 
-            {/* Feature Grid */}
+            {/* Enhanced Cyber Feature Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {product.features.map((feature, index) => (
                 <motion.div
@@ -413,15 +461,24 @@ const ProductDetailPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="bg-card-dark rounded-xl p-6 border border-gray-800 hover:border-cyan-500/50 transition-all duration-300"
+                  className="group relative"
                 >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 sm:mb-4 sm:mr-4">
-                      <feature.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
-                      <p className="text-gray-300 text-sm">{feature.description}</p>
+                  {/* Cyber Card with Glow Effect */}
+                  <div className="bg-gradient-to-br from-gray-900/80 via-cyan-900/20 to-gray-900/80 rounded-xl p-6 border border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-300 backdrop-blur-sm relative overflow-hidden">
+                    {/* Animated Corner Lines */}
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-cyan-400/60 rounded-tl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-cyan-400/60 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-cyan-400/60 rounded-bl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-cyan-400/60 rounded-br-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <div className="flex items-start space-x-4 relative z-10">
+                      <div className="w-14 h-14 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(34,211,238,0.4)] group-hover:shadow-[0_0_30px_rgba(34,211,238,0.6)] transition-all duration-300">
+                        <feature.icon className="w-7 h-7 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-cyan-300 font-bold mb-2 text-lg tracking-wide">{feature.title}</h3>
+                        <p className="text-gray-300 text-sm leading-relaxed">{feature.description}</p>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

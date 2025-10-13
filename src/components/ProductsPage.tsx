@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, Star, Zap, Shield, Camera, Wifi, Battery, MapPin } from 'lucide-react';
+import { ArrowLeft, Zap, Shield, Camera, Wifi, Battery, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import LoadingScreen from './LoadingScreen';
 import { usePageTransition } from '../hooks/usePageTransition';
@@ -21,74 +21,100 @@ const ProductsPage = () => {
   const droneVariants = [
     {
       id: 1,
-      name: 'Agricultural Drone',
-      description: 'Precision agriculture solutions for crop monitoring, spraying, and yield analysis.',
-      features: ['Crop Monitoring', 'Precision Spraying', 'Yield Analysis', 'Pest Detection'],
-      range: '5-15KM',
-      flightTime: '45 min',
-      camera: '4K Multispectral',
-      price: 'From ₱89,970',
-      gradient: 'from-green-500 to-emerald-600',
+      name: 'Surveillance VTOL',
+      description: 'Fixed-wing VTOL RPAS (UAV/UAS) with hybrid gasoline + battery power for extended surveillance operations up to 8 hours.',
+      features: ['8 Hour Flight Time', 'Hybrid Power System', 'VTOL Capable', '6km Ceiling'],
+      specs: {
+        type: 'Fixed-wing VTOL RPAS (UAV/UAS)',
+        maxPayload: '8 kg',
+        flightTime: 'Up to 8 hours',
+        range: 'Up to 200 km (124 mi)',
+        cruiseSpeed: '90 km/h (56 mph)',
+        maxSpeed: '120 km/h',
+        operatingAltitude: '6,000m ceiling',
+        windResistance: '15 m/s',
+        powerSystem: 'Hybrid Gasoline + Battery',
+        endurance: '8 hours continuous'
+      },
+      range: '200KM',
+      flightTime: '8 hours',
+      camera: '4K + Thermal Imaging',
+      price: 'From ₱1,899,970',
+      gradient: 'from-blue-500 to-cyan-600',
       popular: true
     },
     {
       id: 2,
-      name: 'Military Grade',
-      description: 'Heavy-duty drones designed for defense and security applications.',
-      features: ['Surveillance', 'Reconnaissance', 'Payload Delivery', 'Night Vision'],
-      range: '20-50KM',
-      flightTime: '2 hours',
-      camera: '8K Thermal',
-      price: 'From ₱479,970',
-      gradient: 'from-red-500 to-orange-600',
+      name: 'Agri Sprayer and Spreader 16L',
+      description: 'The 16L Drone is designed to combine power, efficiency, and precision in agricultural operations. With advanced spreading and spraying systems, smart automation, and rapid charging.',
+      features: ['16L Tank Capacity', 'Precision Agriculture', 'Smart Automation', 'Liquid Cooled'],
+      specs: {
+        type: 'Agricultural Multirotor',
+        maxPayload: '16L liquid / 25kg solid',
+        flightTime: 'Up to 30 min',
+        range: 'Up to 10 km',
+        cruiseSpeed: '25 km/h',
+        maxSpeed: '40 km/h',
+        operatingAltitude: '500m AGL',
+        windResistance: '12 m/s',
+        sprayWidth: '6-8 meters',
+        tankCapacity: '16 liters',
+        coolingSystem: 'Liquid Cooled'
+      },
+      range: '10KM',
+      flightTime: '30 min',
+      camera: '4K + Multispectral',
+      price: 'From ₱1,299,970',
+      gradient: 'from-green-500 to-emerald-600',
       popular: false
     },
     {
       id: 3,
-      name: 'Aerial Photography',
-      description: 'Professional drones for cinematography and commercial photography.',
-      features: ['Cinematic Filming', 'Live Streaming', 'Event Coverage', 'Real-time Preview'],
-      range: '7-20KM',
-      flightTime: '30 min',
-      camera: '4K 60fps',
-      price: 'From ₱38,970',
-      gradient: 'from-purple-500 to-pink-600',
+      name: 'Medical Delivery Drone',
+      description: 'Hexacopter medical drones are six-rotor UAVs designed for fast, stable delivery of lightweight medical supplies in urban or remote areas, using GPS and onboard cameras for autonomous, contactless transport.',
+      features: ['Obstacle Avoidance', 'Contactless Delivery', 'GPS Navigation', '6-Rotor Stability'],
+      specs: {
+        type: 'Hexacopter Delivery System',
+        maxPayload: '5 kg',
+        flightTime: 'Up to 40 min',
+        range: 'Up to 25 km',
+        cruiseSpeed: '50 km/h',
+        maxSpeed: '80 km/h',
+        operatingAltitude: '1,000m AGL',
+        windResistance: '15 m/s',
+        deliverySystem: 'Automated contactless drop',
+        navigation: 'GPS + Obstacle Avoidance'
+      },
+      range: '25KM',
+      flightTime: '40 min',
+      camera: '4K + GPS Tracking',
+      price: 'From ₱999,970',
+      gradient: 'from-red-500 to-pink-600',
       popular: false
     },
     {
       id: 4,
-      name: 'Search & Rescue',
-      description: 'Emergency response drones for life-saving missions.',
-      features: ['Thermal Imaging', 'GPS Tracking', 'Emergency Beacon', 'Weather Resistant'],
-      range: '10-25KM',
-      flightTime: '1.5 hours',
-      camera: '4K + Thermal',
-      price: 'From ₱269,970',
-      gradient: 'from-blue-500 to-cyan-600',
-      popular: false
-    },
-    {
-      id: 5,
-      name: 'Consumer Drone',
-      description: 'Perfect for hobbyists and photography enthusiasts.',
-      features: ['Easy Control', 'Auto Return', 'Obstacle Avoidance', 'Smart Modes'],
-      range: '3-8KM',
-      flightTime: '25 min',
-      camera: '4K HD',
-      price: 'From ₱17,970',
-      gradient: 'from-cyan-500 to-blue-600',
-      popular: false
-    },
-    {
-      id: 6,
-      name: 'Industrial Inspection',
-      description: 'Specialized drones for infrastructure and equipment inspection.',
-      features: ['Close Inspection', '3D Mapping', 'Defect Detection', 'Report Generation'],
-      range: '5-12KM',
-      flightTime: '40 min',
-      camera: '4K Macro',
-      price: 'From ₱149,970',
-      gradient: 'from-yellow-500 to-orange-600',
+      name: 'Survey and Mapping Drone',
+      description: 'Drones for mapping use high-resolution cameras and GPS to capture aerial images for creating 2D maps and 3D models. They offer stable flight, precise navigation, and quick deployment ideal for land surveys and inspections.',
+      specs: {
+        type: 'Professional Mapping Platform',
+        maxPayload: '3 kg',
+        flightTime: 'Up to 50 min',
+        range: 'Up to 20 km',
+        cruiseSpeed: '45 km/h',
+        maxSpeed: '70 km/h',
+        operatingAltitude: '2,000m AGL',
+        windResistance: '12 m/s',
+        positionAccuracy: '±1cm (RTK-GPS)',
+        surveyCoverage: '800 hectares/day',
+        mappingCapability: '2D Maps + 3D Models'
+      },
+      features: ['High-Resolution Camera', '2D/3D Mapping', 'Stable Flight', 'Quick Deployment'],
+      range: '20KM',
+      flightTime: '50 min',
+      camera: '4K Survey Camera + LiDAR',
+      price: 'From ₱1,599,970',
+      gradient: 'from-purple-500 to-indigo-600',
       popular: false
     }
   ];
@@ -162,7 +188,10 @@ const ProductsPage = () => {
                   <div className="relative mb-4 sm:mb-6">
                     <div className="w-full h-37 sm:h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center relative overflow-hidden">
                       <Image
-                        src="/images/Drone-removebg-preview.png"
+                        src={drone.id === 1 ? "/images/surveillance_drone.png" : 
+                             drone.id === 2 ? "/images/agri_drone.png" :
+                             drone.id === 3 ? "/images/medical_drone.png" :
+                             "/images/survey_drone.png"}
                         alt={drone.name}
                         width={200}
                         height={150}
@@ -201,12 +230,49 @@ const ProductsPage = () => {
                         </div>
                         <span className="text-xs sm:text-sm font-semibold text-white">{drone.flightTime}</span>
                       </div>
+                      <div className="bg-gray-800/50 rounded-lg p-1.5 sm:p-3">
+                        <div className="flex items-center mb-1">
+                          <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 mr-1 sm:mr-2" />
+                          <span className="text-xs text-gray-400">Max Speed</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-semibold text-white">{drone.specs.maxSpeed}</span>
+                      </div>
+                      <div className="bg-gray-800/50 rounded-lg p-1.5 sm:p-3">
+                        <div className="flex items-center mb-1">
+                          <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400 mr-1 sm:mr-2" />
+                          <span className="text-xs text-gray-400">Payload</span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-semibold text-white">{drone.specs.maxPayload}</span>
+                      </div>
                       <div className="bg-gray-800/50 rounded-lg p-1.5 sm:p-3 col-span-2">
                         <div className="flex items-center mb-1">
                           <Camera className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400 mr-1 sm:mr-2" />
                           <span className="text-xs text-gray-400">Camera</span>
                         </div>
                         <span className="text-xs sm:text-sm font-semibold text-white">{drone.camera}</span>
+                      </div>
+                    </div>
+
+                    {/* Detailed Tech Specs */}
+                    <div className="bg-gray-900/50 rounded-lg p-2 sm:p-3 mt-3">
+                      <h4 className="text-xs sm:text-sm font-semibold text-cyan-400 mb-2">Technical Specifications</h4>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                          <span className="text-gray-400">Type:</span>
+                          <span className="text-white ml-1">{drone.specs.type}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">Cruise:</span>
+                          <span className="text-white ml-1">{drone.specs.cruiseSpeed}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">Altitude:</span>
+                          <span className="text-white ml-1">{drone.specs.operatingAltitude}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">Wind:</span>
+                          <span className="text-white ml-1">{drone.specs.windResistance}</span>
+                        </div>
                       </div>
                     </div>
 

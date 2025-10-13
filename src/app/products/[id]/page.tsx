@@ -23,403 +23,269 @@ const ProductDetailPage = () => {
   const productData = {
     1: {
       id: 1,
-      name: 'Agricultural Drone',
-      description: 'Precision agriculture solutions for crop monitoring, spraying, and yield analysis.',
-      keyFeatures: ['Crop Monitoring', 'Precision Spraying', 'Yield Analysis', 'Pest Detection'],
-      range: '5-15KM',
-      flightTime: '45 min',
-      camera: '4K Multispectral',
-      price: 'From ₱89,970',
-      gradient: 'from-green-500 to-emerald-600',
+      name: 'Surveillance VTOL',
+      description: 'Fixed-wing VTOL RPAS (UAV/UAS) with hybrid gasoline + battery power for extended surveillance operations up to 8 hours.',
+      keyFeatures: ['8 Hour Flight Time', 'Hybrid Power System', 'VTOL Capable', '6km Ceiling'],
+      range: '200KM',
+      flightTime: '8 hours',
+      camera: '4K + Thermal Imaging',
+      price: 'From ₱1,899,970',
+      gradient: 'from-blue-500 to-cyan-600',
       popular: true,
       specifications: {
-        maxRange: '15KM',
-        omniDirectional: '7-WAY OMNI',
-        videoQuality: '1080P/60FPS',
-        sensor: '4/3 CMOS',
-        batteryLife: '46 MIN',
-        transmission: 'O3+'
+        maxRange: '200KM',
+        omniDirectional: 'VTOL CAPABLE',
+        videoQuality: '4K/60FPS',
+        sensor: '4K + Thermal',
+        batteryLife: '8 HOURS',
+        transmission: 'Hybrid Power'
       },
       intelligence: {
-        title: 'BEST NEXT-GEN DRONE INTELLIGENCE: WHERE AI MEETS AERIAL PRECISION',
+        title: 'SURVEILLANCE VTOL INTELLIGENCE: WHERE HYBRID POWER MEETS AERIAL PRECISION',
         achievements: [
-          'Winner of Best Consumer Drone 2024',
-          'Over 10,000+ successful flight hours',
-          'Global Lab Tests, 10,000+ tests',
-          '25,000+ drones delivered'
+          'Winner of Best VTOL Drone 2024',
+          'Over 50,000+ successful surveillance hours',
+          'Military Grade Tests, 15,000+ tests',
+          '5,000+ surveillance drones delivered'
         ],
-        description: 'Experience exceptional performance with our advanced drone technology. Featuring a 15km range, 4/3 CMOS sensor, and intelligent flight modes including Focus Pro, Waypoints, Dronie Mode, and Active Track. Equipped with 24/7 obstacle avoidance sensors and dual GPS and GLONASS navigation for ultimate precision and safety.'
+        description: 'Experience exceptional surveillance performance with our advanced VTOL drone technology. Featuring a 200km range, hybrid gasoline + battery power, and intelligent flight modes including Auto Surveillance, Waypoint Navigation, and Target Tracking. Equipped with 6km ceiling capability and advanced thermal imaging for ultimate surveillance precision.'
       },
       features: [
+        {
+          icon: Signal,
+          title: 'Hybrid Power System',
+          description: 'Gasoline + Battery for 8 hour endurance.'
+        },
+        {
+          icon: Camera,
+          title: '4K/60FPS with Thermal Imaging',
+          description: 'Advanced surveillance and night vision.'
+        },
+        {
+          icon: Target,
+          title: 'VTOL Capabilities',
+          description: 'Vertical take-off and landing precision.'
+        },
         {
           icon: Globe,
-          title: 'Highlight sensors with powerful APAS 5.0',
-          description: 'which can provide protection to pilots.'
-        },
-        {
-          icon: Camera,
-          title: '4K/120FPS with 10-bit D-Log M',
-          description: 'the Mavic 3 can record up to one billion colors.'
-        },
-        {
-          icon: Target,
-          title: 'HD 1080P/60FPS live feed',
-          description: 'you can experience smooth, stable.'
-        },
-        {
-          icon: Signal,
-          title: 'Omnidirectional obstacle sensing',
-          description: '15KM HD video transmission.'
+          title: '200KM Extended Range',
+          description: 'Long-range surveillance missions.'
         },
         {
           icon: Battery,
-          title: 'Average horizontal speed of 21 m/s',
-          description: '46 minutes of flight time.'
+          title: '6,000m Operating Ceiling',
+          description: '8 hours of continuous operation.'
         },
-        {
-          icon: Wifi,
-          title: 'Hyperlapse and panorama',
-          description: '1.2-mile transmission technology.'
-        }
-      ],
-      stats: {
-        satisfaction: '40%',
-        onTimeDelivery: '98.9%',
-        dronesDelivered: '25,000+'
-      }
-    },
-    2: {
-      id: 2,
-      name: 'Military Grade',
-      description: 'Heavy-duty drones designed for defense and security applications.',
-      keyFeatures: ['Surveillance', 'Reconnaissance', 'Payload Delivery', 'Night Vision'],
-      range: '20-50KM',
-      flightTime: '2 hours',
-      camera: '8K Thermal',
-      price: 'From ₱479,970',
-      gradient: 'from-red-500 to-orange-600',
-      popular: false,
-      specifications: {
-        maxRange: '50KM',
-        omniDirectional: '8-WAY OMNI',
-        videoQuality: '8K/60FPS',
-        sensor: '8K Thermal',
-        batteryLife: '120 MIN',
-        transmission: 'O4+'
-      },
-      intelligence: {
-        title: 'MILITARY-GRADE DRONE INTELLIGENCE: WHERE SECURITY MEETS AERIAL PRECISION',
-        achievements: [
-          'Military Certified 2024',
-          'Over 50,000+ successful missions',
-          'Global Defense Tests, 25,000+ tests',
-          '15,000+ military drones delivered'
-        ],
-        description: 'Experience military-grade performance with our advanced defense drone technology. Featuring a 50km range, 8K thermal sensor, and specialized military flight modes including Stealth Mode, Combat Reconnaissance, and Tactical Delivery. Equipped with advanced obstacle avoidance and encrypted GPS navigation for ultimate security and precision.'
-      },
-      features: [
         {
           icon: Shield,
-          title: 'Military-grade protection systems',
-          description: 'Advanced stealth and encryption technology.'
-        },
-        {
-          icon: Camera,
-          title: '8K/60FPS with thermal imaging',
-          description: 'Superior night vision and target acquisition.'
-        },
-        {
-          icon: Target,
-          title: 'HD 4K/60FPS live feed',
-          description: 'Real-time tactical surveillance capabilities.'
-        },
-        {
-          icon: Signal,
-          title: 'Encrypted long-range transmission',
-          description: '50KM secure video transmission.'
-        },
-        {
-          icon: Battery,
-          title: 'Extended flight endurance',
-          description: '2 hours of continuous operation.'
-        },
-        {
-          icon: Wifi,
-          title: 'Advanced mission planning',
-          description: 'Autonomous tactical operations.'
+          title: '90 km/h Cruise Speed',
+          description: 'High-speed surveillance capabilities.'
         }
       ],
       stats: {
         satisfaction: '95%',
-        onTimeDelivery: '99.5%',
-        dronesDelivered: '15,000+'
+        onTimeDelivery: '99.2%',
+        dronesDelivered: '5,000+'
       }
     },
-    3: {
-      id: 3,
-      name: 'Aerial Photography',
-      description: 'Professional drones for cinematography and commercial photography.',
-      keyFeatures: ['Cinematic Filming', 'Live Streaming', 'Event Coverage', 'Real-time Preview'],
-      range: '7-20KM',
+    2: {
+      id: 2,
+      name: 'Agri Sprayer and Spreader 16L',
+      description: 'The 16L Drone is designed to combine power, efficiency, and precision in agricultural operations. With advanced spreading and spraying systems, smart automation, and rapid charging.',
+      keyFeatures: ['16L Tank Capacity', 'Precision Agriculture', 'Smart Automation', 'Liquid Cooled'],
+      range: '10KM',
       flightTime: '30 min',
-      camera: '4K 60fps',
-      price: 'From ₱38,970',
-      gradient: 'from-purple-500 to-pink-600',
+      camera: '4K + Multispectral',
+      price: 'From ₱1,299,970',
+      gradient: 'from-green-500 to-emerald-600',
       popular: false,
       specifications: {
-        maxRange: '20KM',
-        omniDirectional: '6-WAY OMNI',
-        videoQuality: '4K/60FPS',
-        sensor: '4K CMOS',
+        maxRange: '10KM',
+        omniDirectional: 'PRECISION SPRAY',
+        videoQuality: '4K/30FPS',
+        sensor: 'Multispectral',
         batteryLife: '30 MIN',
-        transmission: 'O3'
+        transmission: 'Smart Control'
       },
       intelligence: {
-        title: 'PROFESSIONAL AERIAL PHOTOGRAPHY: WHERE CREATIVITY MEETS AERIAL PRECISION',
+        title: 'AGRICULTURAL INTELLIGENCE: WHERE PRECISION MEETS AERIAL FARMING',
         achievements: [
-          'Award-Winning Cinematography 2024',
-          'Over 30,000+ successful shoots',
-          'Professional Film Tests, 15,000+ tests',
-          '20,000+ photography drones delivered'
+          'Winner of Best Agricultural Drone 2024',
+          'Over 100,000+ acres treated',
+          'Agricultural Tests, 20,000+ tests',
+          '10,000+ agricultural drones delivered'
         ],
-        description: 'Experience professional-grade performance with our advanced photography drone technology. Featuring a 20km range, 4K CMOS sensor, and creative flight modes including Cinematic Mode, Follow Me, and Smart Tracking. Equipped with gimbal stabilization and real-time preview for ultimate creative control.'
+        description: 'Experience precision agriculture with our advanced 16L drone technology. Featuring smart automation, liquid cooling system, and precision spraying capabilities. Equipped with multispectral imaging and GPS-guided application for ultimate farming efficiency and crop health monitoring.'
       },
       features: [
         {
-          icon: Camera,
-          title: 'Professional gimbal stabilization',
-          description: 'Smooth cinematic footage every time.'
+          icon: Battery,
+          title: '16L Tank Capacity',
+          description: 'Large liquid/solid payload capacity.'
         },
         {
           icon: Camera,
-          title: '4K/60FPS with HDR recording',
-          description: 'Stunning image quality and color accuracy.'
+          title: 'Multispectral Imaging',
+          description: 'Advanced crop health monitoring.'
         },
         {
           icon: Target,
-          title: 'HD 1080P/60FPS live feed',
-          description: 'Real-time preview and framing.'
+          title: 'Precision Spraying System',
+          description: '6-8 meter spray width coverage.'
         },
         {
           icon: Signal,
-          title: 'Long-range video transmission',
-          description: '20KM HD video transmission.'
+          title: 'Smart Automation',
+          description: 'GPS-guided precision application.'
         },
         {
-          icon: Battery,
-          title: 'Optimized for creative work',
-          description: '30 minutes of filming time.'
+          icon: Zap,
+          title: 'Liquid Cooling System',
+          description: 'Efficient operation in all conditions.'
         },
         {
-          icon: Wifi,
-          title: 'Smart tracking and follow modes',
-          description: 'Advanced autonomous filming.'
+          icon: Shield,
+          title: 'Weather Resistant Design',
+          description: 'Reliable agricultural operations.'
         }
       ],
       stats: {
         satisfaction: '92%',
         onTimeDelivery: '98.5%',
-        dronesDelivered: '20,000+'
+        dronesDelivered: '10,000+'
       }
     },
-    4: {
-      id: 4,
-      name: 'Search & Rescue',
-      description: 'Emergency response drones for life-saving missions.',
-      keyFeatures: ['Thermal Imaging', 'GPS Tracking', 'Emergency Beacon', 'Weather Resistant'],
-      range: '10-25KM',
-      flightTime: '1.5 hours',
-      camera: '4K + Thermal',
-      price: 'From ₱269,970',
-      gradient: 'from-blue-500 to-cyan-600',
+    3: {
+      id: 3,
+      name: 'Medical Delivery Drone',
+      description: 'Hexacopter medical drones are six-rotor UAVs designed for fast, stable delivery of lightweight medical supplies in urban or remote areas, using GPS and onboard cameras for autonomous, contactless transport.',
+      keyFeatures: ['Obstacle Avoidance', 'Contactless Delivery', 'GPS Navigation', '6-Rotor Stability'],
+      range: '25KM',
+      flightTime: '40 min',
+      camera: '4K + GPS Tracking',
+      price: 'From ₱999,970',
+      gradient: 'from-red-500 to-pink-600',
       popular: false,
       specifications: {
         maxRange: '25KM',
-        omniDirectional: '8-WAY OMNI',
-        videoQuality: '4K/60FPS',
-        sensor: '4K + Thermal',
-        batteryLife: '90 MIN',
-        transmission: 'O3+'
+        omniDirectional: '6-ROTOR SYSTEM',
+        videoQuality: '4K/30FPS',
+        sensor: 'GPS + Camera',
+        batteryLife: '40 MIN',
+        transmission: 'Medical Grade'
       },
       intelligence: {
-        title: 'SEARCH & RESCUE INTELLIGENCE: WHERE SAVING LIVES MEETS AERIAL PRECISION',
+        title: 'MEDICAL DELIVERY INTELLIGENCE: WHERE LIFESAVING MEETS AERIAL PRECISION',
         achievements: [
-          'Emergency Response Certified 2024',
-          'Over 5,000+ successful rescues',
-          'Emergency Response Tests, 8,000+ tests',
-          '8,000+ rescue drones delivered'
+          'Medical Certified Delivery 2024',
+          'Over 25,000+ successful deliveries',
+          'Medical Safety Tests, 12,000+ tests',
+          '8,000+ medical delivery drones delivered'
         ],
-        description: 'Experience life-saving performance with our advanced rescue drone technology. Featuring a 25km range, 4K + thermal sensor, and emergency flight modes including Search Grid, Thermal Tracking, and Emergency Drop. Equipped with weather resistance and emergency beacon for ultimate rescue capabilities.'
+        description: 'Experience life-saving delivery performance with our advanced hexacopter technology. Featuring obstacle avoidance sensors, contactless delivery system, and GPS precision navigation. Equipped with temperature-controlled cargo bay and emergency protocols for ultimate medical supply transport.'
       },
       features: [
         {
           icon: Shield,
-          title: 'Advanced thermal imaging',
-          description: 'Life detection in any conditions.'
-        },
-        {
-          icon: Camera,
-          title: '4K/60FPS with thermal overlay',
-          description: 'Dual sensor technology for complete visibility.'
+          title: 'Obstacle Avoidance Sensors',
+          description: 'Advanced collision prevention system.'
         },
         {
           icon: Target,
-          title: 'HD 1080P/60FPS live feed',
-          description: 'Real-time rescue coordination.'
+          title: 'Contactless Delivery System',
+          description: 'Safe automated medical supply drop.'
+        },
+        {
+          icon: Globe,
+          title: 'GPS Precision Navigation',
+          description: 'Accurate delivery to exact locations.'
         },
         {
           icon: Signal,
-          title: 'Emergency communication systems',
-          description: '25KM emergency transmission.'
+          title: '6-Rotor Stability System',
+          description: 'Enhanced flight stability and safety.'
         },
         {
           icon: Battery,
-          title: 'Extended rescue operations',
-          description: '1.5 hours of continuous search.'
+          title: 'Temperature Control',
+          description: 'Medical grade cargo preservation.'
         },
         {
-          icon: Wifi,
-          title: 'Emergency beacon and GPS',
-          description: 'Advanced location tracking.'
+          icon: Camera,
+          title: 'Real-time Tracking',
+          description: '4K camera with GPS monitoring.'
         }
       ],
       stats: {
         satisfaction: '98%',
-        onTimeDelivery: '99.8%',
+        onTimeDelivery: '99.5%',
         dronesDelivered: '8,000+'
       }
     },
-    5: {
-      id: 5,
-      name: 'Consumer Drone',
-      description: 'Perfect for hobbyists and photography enthusiasts.',
-      keyFeatures: ['Easy Control', 'Auto Return', 'Obstacle Avoidance', 'Smart Modes'],
-      range: '3-8KM',
-      flightTime: '25 min',
-      camera: '4K HD',
-      price: 'From ₱17,970',
-      gradient: 'from-cyan-500 to-blue-600',
+    4: {
+      id: 4,
+      name: 'Survey and Mapping Drone',
+      description: 'Drones for mapping use high-resolution cameras and GPS to capture aerial images for creating 2D maps and 3D models. They offer stable flight, precise navigation, and quick deployment ideal for land surveys and inspections.',
+      keyFeatures: ['High-Resolution Camera', '2D/3D Mapping', 'Stable Flight', 'Quick Deployment'],
+      range: '20KM',
+      flightTime: '50 min',
+      camera: '4K Survey Camera + LiDAR',
+      price: 'From ₱1,599,970',
+      gradient: 'from-purple-500 to-indigo-600',
       popular: false,
       specifications: {
-        maxRange: '8KM',
-        omniDirectional: '4-WAY OMNI',
-        videoQuality: '4K/30FPS',
-        sensor: '4K HD',
-        batteryLife: '25 MIN',
-        transmission: 'O2'
-      },
-      intelligence: {
-        title: 'CONSUMER DRONE INTELLIGENCE: WHERE FUN MEETS AERIAL PRECISION',
-        achievements: [
-          'Best Consumer Drone 2024',
-          'Over 100,000+ happy customers',
-          'Consumer Tests, 50,000+ tests',
-          '100,000+ consumer drones delivered'
-        ],
-        description: 'Experience user-friendly performance with our advanced consumer drone technology. Featuring an 8km range, 4K HD sensor, and fun flight modes including Selfie Mode, Follow Me, and Gesture Control. Equipped with obstacle avoidance and auto return for safe and easy flying.'
-      },
-      features: [
-        {
-          icon: Star,
-          title: 'Beginner-friendly controls',
-          description: 'Easy to learn and master.'
-        },
-        {
-          icon: Camera,
-          title: '4K/30FPS with smart modes',
-          description: 'Great photos and videos made simple.'
-        },
-        {
-          icon: Target,
-          title: 'HD 1080P/30FPS live feed',
-          description: 'Smooth real-time viewing.'
-        },
-        {
-          icon: Signal,
-          title: 'Stable video transmission',
-          description: '8KM reliable video feed.'
-        },
-        {
-          icon: Battery,
-          title: 'Perfect for casual flying',
-          description: '25 minutes of fun flight time.'
-        },
-        {
-          icon: Wifi,
-          title: 'Smart flight modes',
-          description: 'Automated flying made easy.'
-        }
-      ],
-      stats: {
-        satisfaction: '88%',
-        onTimeDelivery: '97.5%',
-        dronesDelivered: '100,000+'
-      }
-    },
-    6: {
-      id: 6,
-      name: 'Industrial Inspection',
-      description: 'Specialized drones for infrastructure and equipment inspection.',
-      keyFeatures: ['Close Inspection', '3D Mapping', 'Defect Detection', 'Report Generation'],
-      range: '5-12KM',
-      flightTime: '40 min',
-      camera: '4K Macro',
-      price: 'From ₱149,970',
-      gradient: 'from-yellow-500 to-orange-600',
-      popular: false,
-      specifications: {
-        maxRange: '12KM',
-        omniDirectional: '6-WAY OMNI',
+        maxRange: '20KM',
+        omniDirectional: 'SURVEY GRADE',
         videoQuality: '4K/60FPS',
-        sensor: '4K Macro',
-        batteryLife: '40 MIN',
-        transmission: 'O3'
+        sensor: '4K + LiDAR',
+        batteryLife: '50 MIN',
+        transmission: 'Survey Pro'
       },
       intelligence: {
-        title: 'INDUSTRIAL INSPECTION INTELLIGENCE: WHERE PRECISION MEETS AERIAL INNOVATION',
+        title: 'SURVEY & MAPPING INTELLIGENCE: WHERE PRECISION MEETS AERIAL SURVEYING',
         achievements: [
-          'Industrial Certified 2024',
-          'Over 20,000+ successful inspections',
-          'Industrial Tests, 12,000+ tests',
-          '12,000+ inspection drones delivered'
+          'Survey & Mapping Leader 2024',
+          'Over 1,000,000+ acres mapped',
+          'Survey Accuracy Tests, 25,000+ tests',
+          '12,000+ survey drones delivered'
         ],
-        description: 'Experience industrial-grade performance with our advanced inspection drone technology. Featuring a 12km range, 4K macro sensor, and specialized inspection modes including Close Proximity, 3D Mapping, and Defect Analysis. Equipped with precision positioning and detailed reporting for comprehensive inspections.'
+        description: 'Experience professional surveying with our advanced mapping drone technology. Featuring high-resolution cameras, LiDAR sensors, and RTK-GPS precision. Equipped with 2D/3D mapping capabilities and quick deployment design for ultimate surveying efficiency and accuracy.'
       },
       features: [
         {
-          icon: Target,
-          title: 'Precision close inspection',
-          description: 'Detailed examination capabilities.'
-        },
-        {
           icon: Camera,
-          title: '4K/60FPS with macro lens',
-          description: 'Ultra-detailed inspection imagery.'
+          title: 'High-Resolution Camera System',
+          description: 'Professional grade 4K imaging.'
         },
         {
           icon: Target,
-          title: 'HD 1080P/60FPS live feed',
-          description: 'Real-time inspection monitoring.'
+          title: '2D/3D Mapping Capabilities',
+          description: 'Advanced terrain modeling and analysis.'
+        },
+        {
+          icon: Globe,
+          title: 'RTK-GPS Precision',
+          description: '±1cm positioning accuracy.'
         },
         {
           icon: Signal,
-          title: 'Stable inspection transmission',
-          description: '12KM reliable video feed.'
+          title: 'LiDAR Technology',
+          description: 'Detailed elevation and structure data.'
         },
         {
           icon: Battery,
-          title: 'Extended inspection time',
-          description: '40 minutes of detailed work.'
+          title: 'Extended Survey Operations',
+          description: '50 minutes of continuous mapping.'
         },
         {
-          icon: Wifi,
-          title: '3D mapping and analysis',
-          description: 'Advanced inspection reporting.'
+          icon: Shield,
+          title: 'Quick Deployment Design',
+          description: 'Rapid setup for immediate surveying.'
         }
       ],
       stats: {
         satisfaction: '94%',
-        onTimeDelivery: '98.2%',
+        onTimeDelivery: '98.8%',
         dronesDelivered: '12,000+'
       }
     }
@@ -598,8 +464,11 @@ const ProductDetailPage = () => {
             <div className="relative">
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8">
                 <Image
-                  src="/images/Drone-removebg-preview.png"
-                  alt="Drone Intelligence"
+                  src={product.id === 1 ? "/images/surveillance_drone.png" : 
+                       product.id === 2 ? "/images/agri_drone.png" :
+                       product.id === 3 ? "/images/medical_drone.png" :
+                       "/images/survey_drone.png"}
+                  alt={product.name}
                   width={400}
                   height={300}
                   className="object-contain filter drop-shadow-2xl mx-auto"

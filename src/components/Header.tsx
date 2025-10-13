@@ -73,10 +73,11 @@ const Header = () => {
   ];
 
   const productDropdown = [
-    { name: 'Consumer Drones', href: '#consumer' },
-    { name: 'Professional Drones', href: '#professional' },
-    { name: 'Enterprise Solutions', href: '#enterprise' },
     { name: 'Accessories', href: '#accessories' },
+    { name: 'Consumer Drones', href: '#consumer' },
+    { name: 'Enterprise Solutions', href: '#enterprise' },
+    { name: 'Professional Drones', href: '#professional' },
+    { name: 'Military Drones', href: '#military' },
   ];
 
   const solutionDropdown = [

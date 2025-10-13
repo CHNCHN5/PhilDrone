@@ -259,9 +259,9 @@ const FeaturesSection = () => {
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
             {[
-              { number: '99.9%', label: 'Reliability Rate', color: 'text-cyan-400' },
+              { number: '98.7%', label: 'Reliability Rate', color: 'text-cyan-400' },
               { number: '50km', label: 'Max Range', color: 'text-purple-400' },
-              { number: '2hrs', label: 'Flight Time', color: 'text-green-400' },
+              { number: '5hrs', label: 'Flight Time', color: 'text-green-400' },
               { number: '4K', label: 'Video Quality', color: 'text-orange-400' }
             ].map((stat, index) => (
               <motion.div

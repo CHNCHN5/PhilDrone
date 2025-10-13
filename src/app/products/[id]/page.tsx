@@ -291,6 +291,17 @@ const ProductDetailPage = () => {
     }
   };
 
+  // Function to get the correct drone image based on product ID
+  const getDroneImage = (droneId: number) => {
+    const imageMap = {
+      1: "/images/surveillance_drone.png",
+      2: "/images/agri_drone.png", 
+      3: "/images/medical_drone.png",
+      4: "/images/survey_drone.png"
+    };
+    return imageMap[droneId as keyof typeof imageMap] || "/images/survey_drone.png";
+  };
+
   const product = productData[Number(productId) as keyof typeof productData];
 
   if (!product) {
@@ -344,7 +355,7 @@ const ProductDetailPage = () => {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-12 uppercase">
-              DRONE'S KEY FEATURE
+              DRONE&apos;S KEY FEATURE
             </h1>
 
             {/* Main Drone Image with Labels */}
@@ -352,7 +363,7 @@ const ProductDetailPage = () => {
               <div className="w-full max-w-4xl mx-auto relative">
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 relative overflow-hidden">
                   <Image
-                    src="/images/Drone-removebg-preview.png"
+                    src={getDroneImage(product.id)}
                     alt={product.name}
                     width={400}
                     height={300}

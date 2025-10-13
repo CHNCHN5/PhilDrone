@@ -18,6 +18,17 @@ const ProductsPage = () => {
     navigateWithLoading('/');
   };
 
+  // Explicit image mapping for each drone
+  const getDroneImage = (droneId: number) => {
+    const imageMap = {
+      1: "/images/surveillance_drone.png",
+      2: "/images/agri_drone.png", 
+      3: "/images/medical_drone.png",
+      4: "/images/survey_drone.png"
+    };
+    return imageMap[droneId as keyof typeof imageMap] || "/images/survey_drone.png";
+  };
+
   const droneVariants = [
     {
       id: 1,
@@ -188,14 +199,12 @@ const ProductsPage = () => {
                   <div className="relative mb-4 sm:mb-6">
                     <div className="w-full h-37 sm:h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center relative overflow-hidden">
                       <Image
-                        src={drone.id === 1 ? "/images/surveillance_drone.png" : 
-                             drone.id === 2 ? "/images/agri_drone.png" :
-                             drone.id === 3 ? "/images/medical_drone.png" :
-                             "/images/survey_drone.png"}
+                        src={getDroneImage(drone.id)}
                         alt={drone.name}
                         width={200}
                         height={150}
                         className="object-contain filter drop-shadow-2xl w-49 h-43 sm:w-60 sm:h-50"
+                        priority={drone.id === 1}
                       />
                       
                       {/* Tech Icons */}

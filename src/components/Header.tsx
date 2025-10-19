@@ -14,7 +14,7 @@ const Header = () => {
     // Close menu first
     setIsMenuOpen(false);
     
-    if (href === '/products' || href === '/') {
+    if (href === '/products' || href === '/' || href === '/about') {
       navigateWithLoading(href);
     } else {
       // For anchor links, scroll to the section with a small delay
@@ -69,7 +69,7 @@ const Header = () => {
     { name: 'Solutions', href: '#solutions', hasDropdown: true, icon: Lightbulb },
     { name: 'Industries', href: '#industries', hasDropdown: true, icon: Building2 },
     { name: 'Support', href: '#support', icon: HelpCircle },
-    { name: 'About', href: '#about', icon: Info },
+    { name: 'About', href: '/about', icon: Info },
   ];
 
   const productDropdown = [
@@ -128,7 +128,7 @@ const Header = () => {
             <div className="ml-6 lg:ml-10 flex items-baseline space-x-4 lg:space-x-8">
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
-                  {item.href === '/products' ? (
+                  {item.href === '/products' || item.href === '/about' ? (
                     <button
                       onClick={() => handleNavigation(item.href)}
                       className="text-gray-300 hover:text-cyan-400 px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium flex items-center transition-all duration-200 relative"

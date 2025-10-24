@@ -24,15 +24,13 @@ const HeroSection = () => {
   return (
     <>
       <LoadingScreen isVisible={isLoading} message="Loading..." />
-      <section className="relative min-h-screen pt-14 sm:pt-16 flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black cyber-grid py-8 sm:py-0">
+      <section className="min-h-screen pt-14 sm:pt-5 flex items-center justify-center overflow-hidden bg-gradient-to-br to-black py-8 sm:py-0">
+        <div className="absolute inset-0 cyber-grid"></div>
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-cyan-500/10 rounded-full mix-blend-screen filter blur-xl animate-pulse-slow"></div>
-        <div className="absolute top-40 right-4 sm:right-10 w-48 sm:w-72 h-48 sm:h-72 bg-purple-500/10 rounded-full mix-blend-screen filter blur-xl animate-pulse-slow delay-1000"></div>
-        <div className="absolute -bottom-8 left-8 sm:left-20 w-48 sm:w-72 h-48 sm:h-72 bg-green-500/10 rounded-full mix-blend-screen filter blur-xl animate-pulse-slow delay-2000"></div>
         
         {/* Aerial Video Background */}
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-50">
           <video
             autoPlay
             loop
@@ -128,12 +126,12 @@ const HeroSection = () => {
               className="grid grid-cols-3 gap-4 sm:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800"
             >
               <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-cyan-400">500+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Models Available</div>
+                <div className="text-xl sm:text-2xl font-bold text-cyan-400">5+</div>
+                <div className="text-xs sm:text-sm text-gray-400">Different Models</div>
               </div>
               <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-purple-400">50+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Countries Served</div>
+                <div className="text-xl sm:text-2xl font-bold text-purple-400">PHilDrones</div>
+                <div className="text-xs sm:text-sm text-gray-400">Made in Philippines</div>
               </div>
               <div className="text-center">
                 <div className="text-xl sm:text-2xl font-bold text-green-400">24/7</div>

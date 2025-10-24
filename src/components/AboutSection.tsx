@@ -16,11 +16,14 @@ import {
   Users,
   Globe,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showAllFocusAreas, setShowAllFocusAreas] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -114,29 +117,29 @@ const AboutSection = () => {
   return (
     <div className="bg-gradient-to-b from-gray-900 via-black to-gray-900 min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
+      <section className="relative p-40 pl-10 pr-10 -mt-17 pb-20 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10"></div>
-        <div className="absolute inset-0 bg-[url('/images/aerial-shot-aboutus.jpg')] bg-cover bg-center opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-[url('/images/aerial-shot-aboutus.jpg')] bg-cover bg-center opacity-25"></div>
+        <div className="relative max-w-max mx-auto px-0 sm:px-4">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
               About <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">PHILDRONES</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-md md:text-2xl lg:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
               At PHILDRONES, we design and field mission-ready aircraft tailored to meet the most demanding operational needs. From defense applications to agricultural optimization and geodetic surveying, our drones are engineered for precision, reliability, and performance.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="grid grid-cols-0 gap-4 justify-items-center max-w-md mx-auto">
               <div className="flex items-center space-x-2 text-cyan-400">
-                <CheckCircle className="w-5 h-5" />
-                <span className="font-semibold">Mission-Ready</span>
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="font-semibold text-sm sm:text-base">Mission-Ready</span>
               </div>
               <div className="flex items-center space-x-2 text-purple-400">
-                <CheckCircle className="w-5 h-5" />
-                <span className="font-semibold">Precision Engineering</span>
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="font-semibold text-sm sm:text-base">Precision Engineering</span>
               </div>
-              <div className="flex items-center space-x-2 text-cyan-400">
-                <CheckCircle className="w-5 h-5" />
-                <span className="font-semibold">Proudly Filipino</span>
+              <div className="flex items-center space-x-2 text-cyan-400 col-span-2 justify-center">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="font-semibold text-sm sm:text-base">Proudly Filipino</span>
               </div>
             </div>
           </div>
@@ -219,15 +222,18 @@ const AboutSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {coreFocusAreas.map((area, index) => {
               const IconComponent = area.icon;
+              const isHidden = !showAllFocusAreas && index >= 2;
+              
               return (
                 <div
                   key={area.title}
-                  className={`group relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-neon overflow-hidden ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  className={`group relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-neon overflow-hidden ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${isHidden ? 'hidden md:block' : ''}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative z-10">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${area.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    {/* Hide icon on mobile, show on desktop */}
+                    <div className={`w-12 h-12 bg-gradient-to-r ${area.color} rounded-lg items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg hidden md:flex`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">{area.title}</h3>
@@ -236,6 +242,21 @@ const AboutSection = () => {
                 </div>
               );
             })}
+          </div>
+          
+          {/* Show More/Less Button for Mobile */}
+          <div className="flex justify-center mt-8 md:hidden">
+            <button
+              onClick={() => setShowAllFocusAreas(!showAllFocusAreas)}
+              className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 text-cyan-400 px-6 py-3 rounded-lg hover:bg-cyan-500/10 transition-all duration-300 font-semibold flex items-center space-x-2"
+            >
+              <span>{showAllFocusAreas ? 'Show Less' : 'Show More'}</span>
+              {showAllFocusAreas ? (
+                <ChevronUp className="w-5 h-5" />
+              ) : (
+                <ChevronDown className="w-5 h-5" />
+              )}
+            </button>
           </div>
         </div>
       </section>
@@ -267,7 +288,8 @@ const AboutSection = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                   <div className="relative z-10">
-                    <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    {/* Hide icon on mobile, show on desktop */}
+                    <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg hidden md:flex">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">{item.title}</h3>
@@ -296,7 +318,7 @@ const AboutSection = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {droneProducts.map((drone, index) => (
               <div
                 key={drone.name}
@@ -305,7 +327,7 @@ const AboutSection = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10">
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
                     <Image
                       src={drone.image}
                       alt={drone.name}
@@ -320,8 +342,9 @@ const AboutSection = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">{drone.name}</h3>
-                    <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">{drone.description}</p>
+                    <h3 className="text-sm sm:text-lg md:text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">{drone.name}</h3>
+                    {/* Hide description on mobile, show on desktop */}
+                    <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 hidden md:block">{drone.description}</p>
                   </div>
                 </div>
               </div>

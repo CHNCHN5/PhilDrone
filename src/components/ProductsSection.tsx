@@ -150,12 +150,12 @@ const ProductsSection = () => {
               className="grid grid-cols-2 gap-3 sm:gap-4"
             >
               <div className="bg-card-dark rounded-xl p-3 sm:p-4 border border-gray-800 text-center backdrop-blur-sm">
-                <div className="text-xl sm:text-2xl font-bold text-cyan-400 mb-1">500+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Happy Customers</div>
+                <div className="text-xl sm:text-2xl font-bold text-cyan-400 mb-1">Flying Experience</div>
+                <div className="text-xs sm:text-sm text-gray-400">Smooth and Stable</div>
               </div>
               <div className="bg-card-dark rounded-xl p-3 sm:p-4 border border-gray-800 text-center backdrop-blur-sm">
-                <div className="text-xl sm:text-2xl font-bold text-purple-400 mb-1">50+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Countries</div>
+                <div className="text-xl sm:text-2xl font-bold text-purple-400 mb-1">100%</div>
+                <div className="text-xs sm:text-sm text-gray-400">Local Innovation</div>
               </div>
             </motion.div>
           </motion.div>
